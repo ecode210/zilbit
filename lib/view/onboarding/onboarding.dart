@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/view/authentication/register.dart';
@@ -20,6 +21,10 @@ class Onboarding extends StatelessWidget {
             SizedBox(
               height: 488.h,
               width: 375.w,
+              child: SvgPicture.asset(
+                "assets/svg/onboarding pattern.svg",
+                fit: BoxFit.fill,
+              ),
             ),
             SizedBox(
               height: 44.h,

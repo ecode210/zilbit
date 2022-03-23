@@ -7,6 +7,7 @@ import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/authentication/register_controller.dart';
 import 'package:zilbit/view/authentication/email_sign_up.dart';
 import 'package:zilbit/view/authentication/phone_sign_up.dart';
+import 'package:zilbit/view/authentication/verification_code.dart';
 
 class Register extends StatelessWidget {
   Register({Key? key}) : super(key: key);
@@ -210,17 +211,30 @@ with our """,
                 ],
               ),
               const Spacer(),
-              Container(
-                height: 60.h,
-                width: 343.w,
-                decoration: BoxDecoration(
-                  color: priColor,
-                  borderRadius: BorderRadius.circular(12.r),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  "Send Verification Code",
-                  style: Theme.of(context).textTheme.button!.copyWith(color: backgroundColor),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => const VerificationCode());
+                },
+                child: Container(
+                  height: 60.h,
+                  width: 343.w,
+                  decoration: BoxDecoration(
+                    color: priColor,
+                    borderRadius: BorderRadius.circular(12.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: priColor.withOpacity(0.5),
+                        offset: Offset(0, 5.h),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Send Verification Code",
+                    style: Theme.of(context).textTheme.button!.copyWith(color: backgroundColor),
+                  ),
                 ),
               ),
               SizedBox(height: 20.h),
