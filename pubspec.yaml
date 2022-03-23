@@ -19,6 +19,8 @@ dependencies:
   flutter_screenutil: ^5.3.1
   font_awesome_flutter: ^10.0.0
   bouncing_widget: ^2.0.0
+  intl_phone_number_input: ^0.7.0+2
+  intl_phone_field: ^3.0.1
 
 dev_dependencies:
   flutter_test:

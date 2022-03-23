@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/view/authentication/widgets/auth_text_field.dart';
+import 'package:zilbit/view/authentication/widgets/phone_text_field.dart';
 
 class PhoneSignUp extends StatelessWidget {
   const PhoneSignUp({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class PhoneSignUp extends StatelessWidget {
             "Phone Number",
             style: Theme.of(context).textTheme.headline4!.copyWith(color: formHeaders),
           ),
-          const AuthTextField(
+          const PhoneTextField(
             textInputType: TextInputType.phone,
             hintText: "XXX-XXX-XXXX",
           ),

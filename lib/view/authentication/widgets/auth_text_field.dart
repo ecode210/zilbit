@@ -19,10 +19,7 @@ class AuthTextField extends StatelessWidget {
         child: TextField(
           cursorColor: priColor,
           keyboardType: textInputType,
-          style: Theme.of(context).textTheme.headline4!.copyWith(
-                color: formHeaders,
-                fontWeight: FontWeight.w400,
-              ),
+          style: Theme.of(context).textTheme.subtitle1!.copyWith(color: formHeaders),
           decoration: InputDecoration(
             focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(
@@ -37,10 +34,7 @@ class AuthTextField extends StatelessWidget {
               ),
             ),
             hintText: hintText,
-            hintStyle: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: formTextAreaDefault,
-                  fontWeight: FontWeight.w400,
-                ),
+            hintStyle: Theme.of(context).textTheme.subtitle1,
           ),
         ),
       );
@@ -51,10 +45,7 @@ class AuthTextField extends StatelessWidget {
           return TextField(
             cursorColor: priColor,
             keyboardType: textInputType,
-            style: Theme.of(context).textTheme.headline4!.copyWith(
-                  color: formHeaders,
-                  fontWeight: FontWeight.w400,
-                ),
+            style: Theme.of(context).textTheme.subtitle1!.copyWith(color: formHeaders),
             obscureText: Get.find<RegisterController>().passwordVisibility.value,
             decoration: InputDecoration(
               focusedBorder: UnderlineInputBorder(
@@ -71,10 +62,7 @@ class AuthTextField extends StatelessWidget {
               ),
               contentPadding: EdgeInsets.only(top: 5.h),
               hintText: hintText,
-              hintStyle: Theme.of(context).textTheme.headline4!.copyWith(
-                    color: formTextAreaDefault,
-                    fontWeight: FontWeight.w400,
-                  ),
+              hintStyle: Theme.of(context).textTheme.subtitle1,
               prefixIcon: BouncingWidget(
                 onPressed: () {
                   Get.find<RegisterController>().passwordVisibility.value =

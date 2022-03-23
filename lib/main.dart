@@ -23,14 +23,14 @@ class MyApp extends StatelessWidget {
               headline2: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   color: blackColor,
-                  fontSize: 20.sp,
+                  fontSize: 18.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
               headline3: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   color: backgroundColor,
-                  fontSize: 18.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -39,6 +39,13 @@ class MyApp extends StatelessWidget {
                   color: blackColor,
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
+                ),
+              ),
+              subtitle1: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  color: formTextAreaDefault,
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               caption: GoogleFonts.poppins(
@@ -51,14 +58,14 @@ class MyApp extends StatelessWidget {
               bodyText1: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   color: formHeaders,
-                  fontSize: 16.sp,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),
               button: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   color: priColor,
-                  fontSize: 18.sp,
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),

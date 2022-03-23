@@ -77,10 +77,14 @@ started""",
                       );
                     },
                     scaleFactor: 0.5,
-                    child: Text(
-                      "Email Sign up",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
+                    child: Obx(() {
+                      return Text(
+                        "Email Sign up",
+                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                              color: registerController.registerTab.value == 0 ? blackColor : formTextAreaDefault,
+                            ),
+                      );
+                    }),
                   ),
                   const Spacer(),
                   BouncingWidget(
@@ -92,10 +96,14 @@ started""",
                       );
                     },
                     scaleFactor: 0.5,
-                    child: Text(
-                      "Phone Sign up",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
+                    child: Obx(() {
+                      return Text(
+                        "Phone Sign up",
+                        style: Theme.of(context).textTheme.headline4!.copyWith(
+                              color: registerController.registerTab.value == 1 ? blackColor : formTextAreaDefault,
+                            ),
+                      );
+                    }),
                   ),
                   SizedBox(width: 45.w),
                 ],
@@ -155,7 +163,7 @@ started""",
                   Obx(
                     () {
                       return Transform.scale(
-                        scale: 1.5,
+                        scale: 1.25,
                         child: SizedBox(
                           height: 25.h,
                           width: 25.h,
@@ -201,7 +209,7 @@ with our """,
                   SizedBox(width: 25.w),
                 ],
               ),
-              SizedBox(height: 110.h),
+              const Spacer(),
               Container(
                 height: 60.h,
                 width: 343.w,
@@ -214,7 +222,8 @@ with our """,
                   "Send Verification Code",
                   style: Theme.of(context).textTheme.button!.copyWith(color: backgroundColor),
                 ),
-              )
+              ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
