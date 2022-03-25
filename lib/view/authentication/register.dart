@@ -213,7 +213,7 @@ with our """,
               const Spacer(),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const VerificationCode());
+                  Get.to(() => VerificationCode());
                 },
                 child: Container(
                   height: 60.h,
