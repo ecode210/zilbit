@@ -17,7 +17,7 @@ class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: whiteColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SizedBox(
@@ -171,7 +171,7 @@ started""",
                           child: Checkbox(
                             value: registerController.registerTC.value,
                             fillColor: MaterialStateProperty.all(priColor),
-                            checkColor: backgroundColor,
+                            checkColor: whiteColor,
                             shape: const StadiumBorder(),
                             splashRadius: 10,
                             onChanged: (value) {
@@ -233,7 +233,7 @@ with our """,
                   alignment: Alignment.center,
                   child: Text(
                     "Send Verification Code",
-                    style: Theme.of(context).textTheme.button!.copyWith(color: backgroundColor),
+                    style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
                   ),
                 ),
               ),

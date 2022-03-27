@@ -20,7 +20,7 @@ class PhoneTextField extends StatelessWidget {
       style: Theme.of(context).textTheme.subtitle1!.copyWith(color: formHeaders),
       disableLengthCheck: true,
       dropdownDecoration: BoxDecoration(
-        color: backgroundColor,
+        color: whiteColor,
         borderRadius: BorderRadius.circular(20.r),
       ),
       dropdownIconPosition: IconPosition.trailing,

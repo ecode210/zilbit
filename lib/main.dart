@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
               ),
               headline3: GoogleFonts.poppins(
                 textStyle: TextStyle(
-                  color: backgroundColor,
+                  color: whiteColor,
                   fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               headline4: GoogleFonts.poppins(
@@ -39,6 +39,13 @@ class MyApp extends StatelessWidget {
                   color: blackColor,
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
+                ),
+              ),
+              overline: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  color: blackColor,
+                  fontSize: 32.sp,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               subtitle1: GoogleFonts.poppins(
@@ -50,7 +57,7 @@ class MyApp extends StatelessWidget {
               ),
               caption: GoogleFonts.poppins(
                 textStyle: TextStyle(
-                  color: backgroundColor,
+                  color: whiteColor,
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w400,
                 ),

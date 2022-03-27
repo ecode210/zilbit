@@ -3,11 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:zilbit/constants.dart';
-import 'package:zilbit/view/authentication/transaction_pin.dart';
 import 'package:zilbit/view/authentication/widgets/numeric_button.dart';
+import 'package:zilbit/view/home/dashboard.dart';
 
-class VerificationCode extends StatelessWidget {
-  VerificationCode({Key? key}) : super(key: key);
+class TransactionPin extends StatelessWidget {
+  TransactionPin({Key? key}) : super(key: key);
   final TextEditingController pinController = TextEditingController();
   final FocusNode focusNode = FocusNode();
 
@@ -40,6 +40,11 @@ class VerificationCode extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
+                    Text(
+                      "Set Transaction PIN",
+                      style: Theme.of(context).textTheme.headline3!.copyWith(color: blackColor),
+                    ),
+                    const Spacer(),
                     Icon(
                       Icons.help_outline_outlined,
                       color: Colors.black,
@@ -49,19 +54,12 @@ class VerificationCode extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 50.h),
+              SizedBox(height: 90.h),
               Text(
-                "Verification",
+                "Enter your PIN",
                 style: Theme.of(context).textTheme.headline2,
               ),
               SizedBox(height: 10.h),
-              Text(
-                """
-Verify olawoleaeo@gmail.com by entering the
-verification code""",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
               SizedBox(height: 40.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
@@ -80,6 +78,11 @@ verification code""",
                       borderRadius: BorderRadius.circular(10.r),
                     ),
                   ),
+                  obscureText: true,
+                  obscuringWidget: CircleAvatar(
+                    radius: 7.r,
+                    backgroundColor: formHeaders,
+                  ),
                   length: 6,
                   closeKeyboardWhenCompleted: true,
                   hapticFeedbackType: HapticFeedbackType.lightImpact,
@@ -94,25 +97,19 @@ verification code""",
                   ),
                 ),
               ),
-              SizedBox(height: 30.h),
-              Text(
-                "Didn't receive verification code?",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              SizedBox(height: 30.h),
+              SizedBox(height: 40.h),
               GestureDetector(
                 onTap: (){
-                  //TODO: Change functionality
-                  Get.to(() => TransactionPin());
+                  Get.to(() => Dashboard());
                 },
                 child: Text(
-                  "Resend Code",
+                  "Done",
                   style: Theme.of(context).textTheme.button!.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
-              SizedBox(height: 40.h),
+              SizedBox(height: 80.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
