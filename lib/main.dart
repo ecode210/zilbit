@@ -20,6 +20,13 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           theme: ThemeData(
             textTheme: TextTheme(
+              headline1: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  color: whiteColor,
+                  fontSize: 22.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               headline2: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   color: blackColor,
@@ -55,6 +62,13 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
+              subtitle2: GoogleFonts.poppins(
+                textStyle: TextStyle(
+                  color: formTextAreaDefault,
+                  fontSize: 10.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               caption: GoogleFonts.poppins(
                 textStyle: TextStyle(
                   color: whiteColor,
@@ -67,6 +81,13 @@ class MyApp extends StatelessWidget {
                   color: formHeaders,
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
+                ),
+              ),
+              bodyText2: GoogleFonts.roboto(
+                textStyle: TextStyle(
+                  color: whiteColor,
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               button: GoogleFonts.roboto(
