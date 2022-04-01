@@ -9,10 +9,9 @@ import 'package:zilbit/view/authentication/email_sign_up.dart';
 import 'package:zilbit/view/authentication/phone_sign_up.dart';
 import 'package:zilbit/view/authentication/verification_code.dart';
 
-class Register extends StatelessWidget {
+class Register extends GetWidget<RegisterController> {
   Register({Key? key}) : super(key: key);
   final PageController _pageController = PageController(initialPage: 0);
-  final registerController = Get.put(RegisterController());
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +81,7 @@ started""",
                       return Text(
                         "Email Sign up",
                         style: Theme.of(context).textTheme.headline4!.copyWith(
-                              color: registerController.registerTab.value == 0 ? blackColor : formTextAreaDefault,
+                              color: controller.registerTab.value == 0 ? blackColor : formTextAreaDefault,
                             ),
                       );
                     }),
@@ -101,7 +100,7 @@ started""",
                       return Text(
                         "Phone Sign up",
                         style: Theme.of(context).textTheme.headline4!.copyWith(
-                              color: registerController.registerTab.value == 1 ? blackColor : formTextAreaDefault,
+                              color: controller.registerTab.value == 1 ? blackColor : formTextAreaDefault,
                             ),
                       );
                     }),
@@ -123,8 +122,8 @@ started""",
                       ),
                       AnimatedPositioned(
                         duration: const Duration(milliseconds: 200),
-                        left: registerController.registerTab.value == 0 ? 0 : null,
-                        right: registerController.registerTab.value == 1 ? 0 : null,
+                        left: controller.registerTab.value == 0 ? 0 : null,
+                        right: controller.registerTab.value == 1 ? 0 : null,
                         top: -1.5.h,
                         child: Container(
                           width: 187.w,
@@ -148,7 +147,7 @@ started""",
                   physics: const BouncingScrollPhysics(),
                   controller: _pageController,
                   onPageChanged: (page) {
-                    registerController.registerTab.value = page;
+                    controller.registerTab.value = page;
                   },
                   children: const [
                     EmailSignUp(),
@@ -169,13 +168,13 @@ started""",
                           height: 25.h,
                           width: 25.h,
                           child: Checkbox(
-                            value: registerController.registerTC.value,
+                            value: controller.registerTC.value,
                             fillColor: MaterialStateProperty.all(priColor),
                             checkColor: whiteColor,
                             shape: const StadiumBorder(),
                             splashRadius: 10,
                             onChanged: (value) {
-                              registerController.registerTC.value = value!;
+                              controller.registerTC.value = value!;
                             },
                           ),
                         ),

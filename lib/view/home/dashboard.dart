@@ -9,10 +9,9 @@ import 'package:zilbit/view/marketplace/marketplace.dart';
 import 'package:zilbit/view/trades/trades.dart';
 import 'package:zilbit/view/wallet/wallet.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends GetWidget<HomeController> {
   Dashboard({Key? key}) : super(key: key);
   final PageController pageController = PageController();
-  final homeController = Get.put(HomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +25,8 @@ class Dashboard extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
             controller: pageController,
-            onPageChanged: (index){
-              homeController.currentPage.value = index;
+            onPageChanged: (index) {
+              controller.currentPage.value = index;
             },
             children: const [
               Home(),
@@ -45,10 +44,26 @@ class Dashboard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            BottomNavBarButton(title: "Home", index: 0, pageController: pageController,),
-            BottomNavBarButton(title: "Marketplace", index: 1, pageController: pageController,),
-            BottomNavBarButton(title: "Trades", index: 2, pageController: pageController,),
-            BottomNavBarButton(title: "Wallet", index: 3, pageController: pageController,),
+            BottomNavBarButton(
+              title: "Home",
+              index: 0,
+              pageController: pageController,
+            ),
+            BottomNavBarButton(
+              title: "Marketplace",
+              index: 1,
+              pageController: pageController,
+            ),
+            BottomNavBarButton(
+              title: "Trades",
+              index: 2,
+              pageController: pageController,
+            ),
+            BottomNavBarButton(
+              title: "Wallet",
+              index: 3,
+              pageController: pageController,
+            ),
           ],
         ),
       ),

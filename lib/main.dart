@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zilbit/constants.dart';
+import 'package:zilbit/controller/binding/zilbit_bindings.dart';
 import 'package:zilbit/view/onboarding/onboarding.dart';
 
 void main() {
@@ -102,6 +103,7 @@ class MyApp extends StatelessWidget {
           title: "Zilbit",
           defaultTransition: Transition.cupertino,
           debugShowCheckedModeBanner: false,
+          initialBinding: ZilbitBindings(),
           home: const Onboarding(),
         );
       },
