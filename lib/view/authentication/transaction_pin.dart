@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:zilbit/constants.dart';
+import 'package:zilbit/view/authentication/welcome.dart';
 import 'package:zilbit/view/authentication/widgets/numeric_button.dart';
-import 'package:zilbit/view/home/dashboard.dart';
 
 class TransactionPin extends StatelessWidget {
   TransactionPin({Key? key}) : super(key: key);
@@ -67,7 +67,7 @@ class TransactionPin extends StatelessWidget {
                   keyboardType: TextInputType.phone,
                   controller: pinController,
                   focusNode: focusNode,
-                  onTap: (){
+                  onTap: () {
                     focusNode.unfocus();
                   },
                   cursor: Container(
@@ -99,14 +99,14 @@ class TransactionPin extends StatelessWidget {
               ),
               SizedBox(height: 40.h),
               GestureDetector(
-                onTap: (){
-                  Get.to(() => Dashboard());
+                onTap: () {
+                  Get.to(() => const Welcome());
                 },
                 child: Text(
                   "Done",
                   style: Theme.of(context).textTheme.button!.copyWith(
-                    fontWeight: FontWeight.w700,
-                  ),
+                        fontWeight: FontWeight.w700,
+                      ),
                 ),
               ),
               SizedBox(height: 80.h),

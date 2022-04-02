@@ -5,7 +5,7 @@ import 'package:zilbit/controller/home/home_controller.dart';
 class ZilbitBindings extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => RegisterController());
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => RegisterController(), fenix: true);
+    Get.lazyPut(() => HomeController(), fenix: true);
   }
 }
