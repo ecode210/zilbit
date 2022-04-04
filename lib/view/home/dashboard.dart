@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -17,30 +18,30 @@ class Dashboard extends GetWidget<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: priColor,
-      body: SafeArea(
-        child: SizedBox(
-          height: 812.h,
-          width: 375.w,
-          child: PageView(
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            controller: pageController,
-            onPageChanged: (index) {
-              controller.currentPage.value = index;
-            },
-            children: const [
-              Home(),
-              Marketplace(),
-              Trades(),
-              Wallet(),
-            ],
-          ),
+      body: SizedBox(
+        height: 812.h,
+        width: 375.w,
+        child: PageView(
+          physics: const BouncingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          controller: pageController,
+          onPageChanged: (index) {
+            controller.currentPage.value = index;
+          },
+          children: const [
+            Home(),
+            Marketplace(),
+            Trades(),
+            Wallet(),
+          ],
         ),
       ),
       bottomNavigationBar: Container(
-        height: 70.h,
+        // TODO: Increase height for ios
+        height: defaultTargetPlatform == TargetPlatform.iOS ? 90.h : 70.h,
         width: 375.w,
         color: whiteColor,
+        padding: defaultTargetPlatform == TargetPlatform.iOS ? EdgeInsets.only(bottom: 20.h) : null,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

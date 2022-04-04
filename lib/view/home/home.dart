@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,63 +21,91 @@ class Home extends StatelessWidget {
           return false;
         },
         child: ListView(
+          physics: defaultTargetPlatform == TargetPlatform.iOS ? const ClampingScrollPhysics() : null,
           children: [
-            Container(
-              height: 250.h,
-              width: 375.w,
-              padding: EdgeInsets.symmetric(horizontal: 20.w),
-              color: priColor,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  height: defaultTargetPlatform == TargetPlatform.iOS ? 225.h : 240.h,
+                  width: 375.w,
+                  color: priColor,
+                  alignment: Alignment.centerRight,
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                    height: defaultTargetPlatform == TargetPlatform.iOS ? 275.h : 290.h,
+                    width: 375.w,
+                    color: priColor,
+                    alignment: Alignment.centerRight,
+                    child: SvgPicture.asset(
+                      "assets/svg/appbar pattern.svg",
+                      height: defaultTargetPlatform == TargetPlatform.iOS ? 275.h : 290.h,
+                      width: 375.w,
+                      fit: BoxFit.fitHeight,
+                      color: whiteColor.withOpacity(0.1),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: defaultTargetPlatform == TargetPlatform.iOS ? 225.h : 240.h,
+                  width: 375.w,
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
                         children: [
-                          Text(
-                            "NGN 24,420,000",
-                            style: Theme.of(context).textTheme.bodyText2,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "NGN 24,420,000",
+                                style: Theme.of(context).textTheme.bodyText2,
+                              ),
+                              Text(
+                                "Active Balance",
+                                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                                      color: whiteColor.withOpacity(0.6),
+                                    ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            "Active Balance",
-                            style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                                  color: whiteColor.withOpacity(0.6),
-                                ),
+                          const Spacer(),
+                          Icon(
+                            Icons.notifications_none_rounded,
+                            color: whiteColor,
+                            size: 30.sp,
                           ),
+                          SizedBox(width: 20.w),
+                          CircleAvatar(
+                            radius: 22.w,
+                            backgroundColor: whiteColor,
+                            child: CircleAvatar(
+                              radius: 20.w,
+                              backgroundColor: Colors.amber.shade200,
+                            ),
+                          )
                         ],
                       ),
-                      const Spacer(),
-                      Icon(
-                        Icons.notifications_none_rounded,
-                        color: whiteColor,
-                        size: 30.sp,
-                      ),
-                      SizedBox(width: 20.w),
-                      CircleAvatar(
-                        radius: 22.w,
-                        backgroundColor: whiteColor,
-                        child: CircleAvatar(
-                          radius: 20.w,
-                          backgroundColor: Colors.amber.shade200,
-                        ),
+                      SizedBox(height: 30.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: const [
+                          AppBarButton(title: "Send"),
+                          AppBarButton(title: "Deposit"),
+                          AppBarButton(title: "Swap"),
+                          AppBarButton(title: "Refer"),
+                        ],
                       )
                     ],
                   ),
-                  SizedBox(height: 30.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      AppBarButton(title: "Send"),
-                      AppBarButton(title: "Deposit"),
-                      AppBarButton(title: "Swap"),
-                      AppBarButton(title: "Refer"),
-                    ],
-                  )
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 15.h),
             Container(
               width: 375.w,
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -95,7 +124,7 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 15.h),
             Container(
               height: 160.h,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
@@ -123,9 +152,9 @@ class Home extends StatelessWidget {
                     child: Row(
                       children: [
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 17.h),
                             Text(
                               """
 Hey User! Did you
@@ -136,7 +165,7 @@ know you could""",
                               "Refer To Earn",
                               style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.w700),
                             ),
-                            const Spacer(),
+                            SizedBox(height: 10.h),
                             Container(
                               height: 30.h,
                               width: 150.w,
@@ -150,7 +179,6 @@ know you could""",
                                 style: Theme.of(context).textTheme.button!.copyWith(fontSize: 12.sp),
                               ),
                             ),
-                            SizedBox(height: 17.h),
                           ],
                         ),
                         const Spacer(),
@@ -246,7 +274,7 @@ know you could""",
             ),
             SizedBox(height: 20.h),
             Container(
-              height: 215.h,
+              height: 190.h,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
               padding: EdgeInsets.symmetric(vertical: 20.h),
               decoration: BoxDecoration(
@@ -258,6 +286,7 @@ know you could""",
                 ),
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Do more with Zilbit",
@@ -266,7 +295,7 @@ know you could""",
                           fontWeight: FontWeight.w700,
                         ),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 10.h),
                   Text(
                     """
 Be Limitless! Click the button below to
@@ -291,7 +320,7 @@ complete your profile verification.""",
                 ],
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 15.h),
             Container(
               width: 375.w,
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -310,7 +339,7 @@ complete your profile verification.""",
                 ],
               ),
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 15.h),
             Container(
               height: 330.h,
               width: 335.w,
