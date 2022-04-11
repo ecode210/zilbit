@@ -22,4 +22,5 @@ class MarketplaceController extends GetxController {
     "ETH",
     "USDT",
   ];
+  Rx<bool> vendorFavorite = false.obs;
 }

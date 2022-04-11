@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/marketplace/marketplace_controller.dart';
+import 'package:zilbit/view/marketplace/vendor_profile.dart';
 
 class MarketplaceOffer extends GetWidget<MarketplaceController> {
   const MarketplaceOffer({Key? key}) : super(key: key);
@@ -118,17 +119,22 @@ class MarketplaceOffer extends GetWidget<MarketplaceController> {
               ),
               Obx(
                 () {
-                  return Container(
-                    height: 25.h,
-                    width: 80.w,
-                    decoration: BoxDecoration(
-                      color: priColor,
-                      borderRadius: BorderRadius.circular(5.r),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      controller.selectedTransactionType.value,
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(color: whiteColor),
+                  return GestureDetector(
+                    onTap: () {
+                      Get.to(() => const VendorProfile());
+                    },
+                    child: Container(
+                      height: 25.h,
+                      width: 80.w,
+                      decoration: BoxDecoration(
+                        color: priColor,
+                        borderRadius: BorderRadius.circular(5.r),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        controller.selectedTransactionType.value,
+                        style: Theme.of(context).textTheme.bodyText1!.copyWith(color: whiteColor),
+                      ),
                     ),
                   );
                 },

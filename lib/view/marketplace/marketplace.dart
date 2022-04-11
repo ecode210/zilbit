@@ -16,7 +16,7 @@ class Marketplace extends GetWidget<MarketplaceController> {
     return Container(
       width: 375.w,
       height: 812.h,
-      color: backgroundColor,
+      color: whiteColor,
       child: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overScroll) {
           overScroll.disallowIndicator();
