@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +24,7 @@ class VendorProfile extends GetWidget<MarketplaceController> {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             children: [
-              SizedBox(height: 20.h),
+              SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
               SizedBox(
                 height: 24.h,
                 width: 375.w,

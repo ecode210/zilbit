@@ -53,7 +53,8 @@ class Confirmation extends GetWidget<MarketplaceController> {
                   ),
                   Container(
                     width: 375.w,
-                    padding: EdgeInsets.fromLTRB(20.w, 60.h, 20.w, 0),
+                    padding:
+                        EdgeInsets.fromLTRB(20.w, defaultTargetPlatform == TargetPlatform.iOS ? 60.h : 50.h, 20.w, 0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -89,7 +90,8 @@ class Confirmation extends GetWidget<MarketplaceController> {
                   children: [
                     Container(
                       width: 375.w,
-                      padding: EdgeInsets.fromLTRB(0, 85.h, 0, 110.h),
+                      padding:
+                          EdgeInsets.fromLTRB(0, 85.h, 0, defaultTargetPlatform == TargetPlatform.iOS ? 100.h : 80.h),
                       decoration: BoxDecoration(
                         color: backgroundColor,
                         borderRadius: BorderRadius.only(
@@ -271,7 +273,8 @@ class Confirmation extends GetWidget<MarketplaceController> {
                               "Report a problem",
                               style: Theme.of(context).textTheme.button!.copyWith(color: warningColor),
                             ),
-                          )
+                          ),
+                          SizedBox(height: 20.h),
                         ],
                       ),
                     ),
@@ -322,7 +325,7 @@ class Confirmation extends GetWidget<MarketplaceController> {
                     Positioned(
                       bottom: 0,
                       child: Container(
-                        height: 100.h,
+                        height: defaultTargetPlatform == TargetPlatform.iOS ? 100.h : 80.h,
                         width: 375.w,
                         color: whiteColor,
                         child: Column(

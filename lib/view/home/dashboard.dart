@@ -37,7 +37,6 @@ class Dashboard extends GetWidget<HomeController> {
         ),
       ),
       bottomNavigationBar: Container(
-        // TODO: Increase height for ios
         height: defaultTargetPlatform == TargetPlatform.iOS ? 90.h : 70.h,
         width: 375.w,
         color: whiteColor,

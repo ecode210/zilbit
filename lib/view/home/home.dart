@@ -274,7 +274,7 @@ know you could""",
             ),
             SizedBox(height: 20.h),
             Container(
-              height: 190.h,
+              height: defaultTargetPlatform == TargetPlatform.iOS ? 190.h : 210.h,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
               padding: EdgeInsets.symmetric(vertical: 20.h),
               decoration: BoxDecoration(

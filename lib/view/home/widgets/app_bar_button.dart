@@ -1,8 +1,9 @@
-import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
+import 'package:zilbit/view/home/swap.dart';
 
 class AppBarButton extends StatelessWidget {
   const AppBarButton({Key? key, required this.title}) : super(key: key);
@@ -12,9 +13,20 @@ class AppBarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        BouncingWidget(
-          onPressed: (){},
-          scaleFactor: 0.5,
+        GestureDetector(
+          onTap: () {
+            switch (title) {
+              case "Send":
+                break;
+              case "Deposit":
+                break;
+              case "Swap":
+                Get.to(() => Swap());
+                break;
+              case "Refer":
+                break;
+            }
+          },
           child: Container(
             height: 58.h,
             width: 58.w,
