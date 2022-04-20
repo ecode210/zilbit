@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/marketplace/marketplace_controller.dart';
+import 'package:zilbit/view/marketplace/chat.dart';
 import 'package:zilbit/view/marketplace/notification_received.dart';
 
 class Confirmation extends GetWidget<MarketplaceController> {
@@ -74,10 +75,15 @@ class Confirmation extends GetWidget<MarketplaceController> {
                           style: Theme.of(context).textTheme.headline3!.copyWith(color: whiteColor),
                         ),
                         const Spacer(),
-                        Icon(
-                          Icons.chat_rounded,
-                          color: Colors.amber,
-                          size: 25.sp,
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(() => const Chat());
+                          },
+                          child: Icon(
+                            Icons.chat_rounded,
+                            color: Colors.amber,
+                            size: 25.sp,
+                          ),
                         ),
                       ],
                     ),

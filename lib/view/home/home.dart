@@ -2,9 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/view/home/widgets/app_bar_button.dart';
 import 'package:zilbit/view/home/widgets/recent_trades.dart';
+import 'package:zilbit/view/profile/user_profile.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -80,12 +82,17 @@ class Home extends StatelessWidget {
                             size: 30.sp,
                           ),
                           SizedBox(width: 20.w),
-                          CircleAvatar(
-                            radius: 22.w,
-                            backgroundColor: whiteColor,
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(() => const UserProfile());
+                            },
                             child: CircleAvatar(
-                              radius: 20.w,
-                              backgroundColor: Colors.amber.shade200,
+                              radius: 22.w,
+                              backgroundColor: whiteColor,
+                              child: CircleAvatar(
+                                radius: 20.w,
+                                backgroundColor: Colors.amber.shade200,
+                              ),
                             ),
                           )
                         ],

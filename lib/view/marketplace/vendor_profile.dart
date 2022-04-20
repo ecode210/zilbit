@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/marketplace/marketplace_controller.dart';
-import 'package:zilbit/view/marketplace/confirmation.dart';
+import 'package:zilbit/view/marketplace/buy_sell_crypto.dart';
 import 'package:zilbit/view/marketplace/widgets/recent_feedback.dart';
 
 class VendorProfile extends GetWidget<MarketplaceController> {
@@ -146,7 +146,7 @@ class VendorProfile extends GetWidget<MarketplaceController> {
                           ),
                           SizedBox(width: 3.w),
                           Icon(
-                            Icons.shield_rounded,
+                            Icons.verified_user_rounded,
                             color: Colors.green,
                             size: 15.sp,
                           ),
@@ -157,7 +157,7 @@ class VendorProfile extends GetWidget<MarketplaceController> {
                           ),
                           SizedBox(width: 3.w),
                           Icon(
-                            Icons.shield_rounded,
+                            Icons.verified_user_rounded,
                             color: Colors.green,
                             size: 15.sp,
                           ),
@@ -168,7 +168,7 @@ class VendorProfile extends GetWidget<MarketplaceController> {
                           ),
                           SizedBox(width: 3.w),
                           Icon(
-                            Icons.shield_rounded,
+                            Icons.verified_user_rounded,
                             color: Colors.green,
                             size: 15.sp,
                           ),
@@ -395,7 +395,7 @@ class VendorProfile extends GetWidget<MarketplaceController> {
               SizedBox(height: 20.h),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const Confirmation());
+                  Get.to(() => const BuySellCrypto());
                 },
                 child: Container(
                   height: 40.h,
