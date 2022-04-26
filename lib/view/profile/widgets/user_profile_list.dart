@@ -3,7 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/view/profile/account.dart';
+import 'package:zilbit/view/profile/notifications.dart';
 import 'package:zilbit/view/profile/payment_methods.dart';
+import 'package:zilbit/view/profile/refer_and_earn.dart';
+import 'package:zilbit/view/profile/security.dart';
+import 'package:zilbit/view/profile/settings.dart';
 
 class UserProfileList extends StatelessWidget {
   const UserProfileList({Key? key, required this.title, required this.icon}) : super(key: key);
@@ -20,6 +24,18 @@ class UserProfileList extends StatelessWidget {
             break;
           case "Payment Methods":
             Get.to(() => const PaymentMethods());
+            break;
+          case "Security":
+            Get.to(() => const Security());
+            break;
+          case "Notifications":
+            Get.to(() => const Notifications());
+            break;
+          case "Settings":
+            Get.to(() => const Settings());
+            break;
+          case "Refer and Earn":
+            Get.to(() => const ReferEarn());
             break;
         }
       },
