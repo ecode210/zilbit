@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/binding/zilbit_bindings.dart';
-import 'package:zilbit/view/onboarding/onboarding.dart';
+import 'package:zilbit/view/home/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -104,7 +104,7 @@ class MyApp extends StatelessWidget {
           defaultTransition: Transition.cupertino,
           debugShowCheckedModeBanner: false,
           initialBinding: ZilbitBindings(),
-          home: const Onboarding(),
+          home: Dashboard(),
         );
       },
     );

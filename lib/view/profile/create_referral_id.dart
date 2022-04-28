@@ -150,17 +150,23 @@ Unique Referral ID""",
                 ],
               ),
               SizedBox(height: 40.h),
-              Container(
-                height: 50.h,
-                width: 335.w,
-                decoration: BoxDecoration(
-                  color: priColor,
-                  borderRadius: BorderRadius.circular(10.r),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  "Finish",
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16.sp),
+              GestureDetector(
+                onTap: () {
+                  controller.hasReferralID.value = true;
+                  Get.back();
+                },
+                child: Container(
+                  height: 50.h,
+                  width: 335.w,
+                  decoration: BoxDecoration(
+                    color: priColor,
+                    borderRadius: BorderRadius.circular(10.r),
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Finish",
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 16.sp),
+                  ),
                 ),
               ),
               SizedBox(height: 10.h),
