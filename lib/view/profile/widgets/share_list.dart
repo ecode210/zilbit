@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:zilbit/constants.dart';
 
-class ReferralShare extends StatelessWidget {
-  const ReferralShare({Key? key, required this.index}) : super(key: key);
+class ShareList extends StatelessWidget {
+  const ShareList({Key? key, required this.index}) : super(key: key);
   final int index;
 
   IconData icon() {

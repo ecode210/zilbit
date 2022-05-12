@@ -7,9 +7,11 @@ import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/authentication/register_controller.dart';
 
 class AuthTextField extends StatelessWidget {
-  const AuthTextField({Key? key, required this.textInputType, required this.hintText}) : super(key: key);
+  const AuthTextField({Key? key, required this.textInputType, required this.hintText, this.suffixIcon})
+      : super(key: key);
   final TextInputType textInputType;
   final String hintText;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class AuthTextField extends StatelessWidget {
             ),
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.subtitle1,
+            suffixIcon: suffixIcon,
           ),
         ),
       );

@@ -1,23 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/verification/verification_controller.dart';
-import 'package:zilbit/view/verification/widgets/verification_list.dart';
+import 'package:zilbit/view/authentication/widgets/auth_text_field.dart';
 
-class Verification extends GetWidget<VerificationController> {
-  const Verification({Key? key}) : super(key: key);
-
-  bool canSubmitVerification() {
-    if (controller.personalInfoVerified.value ||
-        controller.identityVerified.value ||
-        controller.phoneEmailVerified.value) {
-      if (controller.verificationTC.value) return true;
-    }
-    return false;
-  }
+class PersonalInformation extends GetWidget<VerificationController> {
+  const PersonalInformation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +19,7 @@ class Verification extends GetWidget<VerificationController> {
           height: double.infinity,
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
               SizedBox(
@@ -58,26 +49,55 @@ class Verification extends GetWidget<VerificationController> {
               ),
               SizedBox(height: 30.h),
               Text(
-                "Complete the following verification\nprocesses to do more with Zilbit",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 16.sp),
+                "Personal\nInformation",
+                style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 25.sp),
               ),
               SizedBox(height: 30.h),
-              const VerificationList(
-                title: "Personal Information",
-                icon: FontAwesomeIcons.user,
+              Text(
+                "First Name",
+                style: Theme.of(context).textTheme.headline4!.copyWith(color: formHeaders),
+              ),
+              const AuthTextField(
+                textInputType: TextInputType.emailAddress,
+                hintText: "Enter your first name",
               ),
               SizedBox(height: 20.h),
-              const VerificationList(
-                title: "Identity Verification",
-                icon: FontAwesomeIcons.addressCard,
+              Text(
+                "Surname",
+                style: Theme.of(context).textTheme.headline4!.copyWith(color: formHeaders),
+              ),
+              const AuthTextField(
+                textInputType: TextInputType.emailAddress,
+                hintText: "Enter your surname",
               ),
               SizedBox(height: 20.h),
-              const VerificationList(
-                title: "Phone and Email Verification",
-                icon: FontAwesomeIcons.mobileScreen,
+              Text(
+                "Other Names",
+                style: Theme.of(context).textTheme.headline4!.copyWith(color: formHeaders),
               ),
-              SizedBox(height: 30.h),
+              const AuthTextField(
+                textInputType: TextInputType.emailAddress,
+                hintText: "Enter your other names",
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                "Date of Birth",
+                style: Theme.of(context).textTheme.headline4!.copyWith(color: formHeaders),
+              ),
+              AuthTextField(
+                textInputType: TextInputType.emailAddress,
+                hintText: "DD-MM-YYYY",
+                suffixIcon: Container(
+                  width: 10.w,
+                  alignment: Alignment.center,
+                  child: Icon(
+                    Icons.calendar_today_rounded,
+                    color: formHeaders,
+                    size: 20.sp,
+                  ),
+                ),
+              ),
+              const Spacer(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -90,13 +110,13 @@ class Verification extends GetWidget<VerificationController> {
                           height: 25.h,
                           width: 25.h,
                           child: Checkbox(
-                            value: controller.verificationTC.value,
+                            value: controller.personalInfoTC.value,
                             fillColor: MaterialStateProperty.all(priColor),
                             checkColor: whiteColor,
                             shape: const StadiumBorder(),
                             splashRadius: 10,
                             onChanged: (value) {
-                              controller.verificationTC.value = value!;
+                              controller.personalInfoTC.value = value!;
                             },
                           ),
                         ),
@@ -113,25 +133,27 @@ class Verification extends GetWidget<VerificationController> {
                   SizedBox(width: 10.w),
                 ],
               ),
-              const Spacer(),
+              SizedBox(height: 40.h),
               GestureDetector(
-                onTap: () {},
-                child: Obx(
-                  () {
-                    return Container(
-                      height: 40.h,
-                      width: 295.w,
-                      decoration: BoxDecoration(
-                        color: canSubmitVerification() ? priColor : formTextAreaDefault,
-                        borderRadius: BorderRadius.circular(12.r),
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Submit Verification",
-                        style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
-                      ),
-                    );
-                  },
+                onTap: () {
+                  controller.personalInfoVerified.value = true;
+                  Get.back();
+                },
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    height: 40.h,
+                    width: 295.w,
+                    decoration: BoxDecoration(
+                      color: priColor,
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Submit",
+                      style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: 20.h),

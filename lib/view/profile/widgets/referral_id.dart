@@ -8,7 +8,7 @@ import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/profile/profile_controller.dart';
 import 'package:zilbit/view/profile/create_referral_id.dart';
 import 'package:zilbit/view/profile/invite_friends.dart';
-import 'package:zilbit/view/profile/widgets/referral_share.dart';
+import 'package:zilbit/view/profile/widgets/share.dart';
 
 class ReferralID extends GetWidget<ProfileController> {
   const ReferralID({Key? key}) : super(key: key);
@@ -61,7 +61,7 @@ class ReferralID extends GetWidget<ProfileController> {
                           SizedBox(width: 10.w),
                           BouncingWidget(
                             onPressed: () {
-                              shareModal(context: context);
+                              Share.shareModal(context: context);
                             },
                             scaleFactor: 0.5,
                             child: Text(
@@ -260,77 +260,6 @@ Zilbit""",
                 ),
         );
       },
-    );
-  }
-
-  void shareModal({required BuildContext context}) {
-    bottomSheet(
-      height: 300.h,
-      dismissable: true,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Share with",
-            style: Theme.of(context).textTheme.headline4!.copyWith(fontSize: 16.sp),
-          ),
-          SizedBox(height: 15.h),
-          SizedBox(
-            height: 95.h,
-            width: 335.w,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              physics: const BouncingScrollPhysics(),
-              itemCount: 6,
-              itemBuilder: (context, index) {
-                return ReferralShare(index: index);
-              },
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 15.w);
-              },
-            ),
-          ),
-          SizedBox(height: 20.h),
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              "Or share with link",
-              style: Theme.of(context).textTheme.caption!.copyWith(
-                    color: formHeaders,
-                    fontWeight: FontWeight.w600,
-                  ),
-            ),
-          ),
-          SizedBox(height: 15.h),
-          Container(
-            height: 55.h,
-            width: 335.w,
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            decoration: BoxDecoration(
-              color: formTextAreaDefault.withOpacity(0.15),
-              borderRadius: BorderRadius.circular(15.r),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "https://zilbit/INVSTRZEE/I just found this cool app just found this cool app",
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 12.sp),
-                  ),
-                ),
-                SizedBox(width: 5.w),
-                FaIcon(
-                  FontAwesomeIcons.solidCopy,
-                  color: priColor,
-                  size: 20.sp,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

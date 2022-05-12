@@ -33,347 +33,344 @@ class _SwapState extends State<Swap> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: backgroundColor,
-      resizeToAvoidBottomInset: false,
-      body: SizedBox(
-        width: 375.w,
-        height: 812.h,
-        child: Column(
-          children: [
-            SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 60.h : 50.h),
-            SizedBox(
-              height: 24.h,
-              width: 375.w,
-              child: Row(
-                children: [
-                  SizedBox(width: 20.w),
-                  GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: Icon(
-                      Icons.arrow_back_rounded,
-                      color: Colors.black,
-                      size: 25.sp,
-                    ),
+    return Container(
+      width: 375.w,
+      height: 812.h,
+      color: backgroundColor,
+      child: Column(
+        children: [
+          SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 60.h : 50.h),
+          SizedBox(
+            height: 24.h,
+            width: 375.w,
+            child: Row(
+              children: [
+                SizedBox(width: 20.w),
+                GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Icon(
+                    Icons.arrow_back_rounded,
+                    color: Colors.black,
+                    size: 25.sp,
                   ),
-                  const Spacer(),
-                  Text(
-                    "Swap",
-                    style: Theme.of(context).textTheme.headline3!.copyWith(color: blackColor),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    height: 25.h,
-                    width: 25.w,
-                  ),
-                  SizedBox(width: 20.w),
-                ],
-              ),
+                ),
+                const Spacer(),
+                Text(
+                  "Swap",
+                  style: Theme.of(context).textTheme.headline3!.copyWith(color: blackColor),
+                ),
+                const Spacer(),
+                SizedBox(
+                  height: 25.h,
+                  width: 25.w,
+                ),
+                SizedBox(width: 20.w),
+              ],
             ),
-            SizedBox(height: 20.h),
-            Container(
-              height: defaultTargetPlatform == TargetPlatform.iOS ? 115.h : 135.h,
-              width: 335.w,
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-              decoration: BoxDecoration(
-                color: whiteColor,
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "From",
+          ),
+          SizedBox(height: 20.h),
+          Container(
+            height: defaultTargetPlatform == TargetPlatform.iOS ? 115.h : 135.h,
+            width: 335.w,
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+            decoration: BoxDecoration(
+              color: whiteColor,
+              borderRadius: BorderRadius.circular(10.r),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "From",
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            color: blackColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                    Text(
+                      "Use max",
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            color: blackColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: pinController,
+                        focusNode: focusNode,
+                        onTap: () {
+                          focusNode.unfocus();
+                        },
+                        cursorColor: Colors.transparent,
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: blackColor,
-                              fontWeight: FontWeight.w600,
+                              color: formTextAreaDefault,
+                              fontSize: 30.sp,
                             ),
+                        decoration: InputDecoration(
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          hintText: "0",
+                          hintStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+                                color: formTextAreaDefault,
+                                fontSize: 30.sp,
+                              ),
+                        ),
                       ),
-                      Text(
-                        "Use max",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: blackColor,
-                              fontWeight: FontWeight.w600,
+                    ),
+                    SizedBox(width: 10.w),
+                    BouncingWidget(
+                      onPressed: () {
+                        bottomSheet(
+                          dismissable: true,
+                          child: SwapBottomSheet(
+                            pageController: pageController,
+                            index: 0,
+                          ),
+                        );
+                      },
+                      scaleFactor: 0.5,
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.green.withOpacity(0.3),
+                            radius: 16.sp,
+                            child: FaIcon(
+                              FontAwesomeIcons.ethereum,
+                              color: Colors.green,
+                              size: 20.sp,
                             ),
+                          ),
+                          SizedBox(width: 10.w),
+                          Text(
+                            "ETH",
+                            style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                          ),
+                          SizedBox(width: 5.w),
+                          Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: formTextAreaDefault,
+                            size: 20.sp,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          controller: pinController,
-                          focusNode: focusNode,
-                          onTap: () {
-                            focusNode.unfocus();
-                          },
-                          cursorColor: Colors.transparent,
+                    ),
+                  ],
+                ),
+                Text(
+                  "\$0.00",
+                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                        color: formTextAreaDefault,
+                        fontSize: 14.sp,
+                      ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 15.h),
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                height: 110.h,
+                width: 335.w,
+                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+                decoration: BoxDecoration(
+                  color: whiteColor,
+                  borderRadius: BorderRadius.circular(10.r),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "To",
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            color: blackColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "0",
                           style: Theme.of(context).textTheme.bodyText1!.copyWith(
                                 color: formTextAreaDefault,
                                 fontSize: 30.sp,
                               ),
-                          decoration: InputDecoration(
-                            focusedBorder: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            hintText: "0",
-                            hintStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
-                                  color: formTextAreaDefault,
-                                  fontSize: 30.sp,
-                                ),
-                          ),
                         ),
-                      ),
-                      SizedBox(width: 10.w),
-                      BouncingWidget(
-                        onPressed: () {
-                          bottomSheet(
-                            dismissable: true,
-                            child: SwapBottomSheet(
-                              pageController: pageController,
-                              index: 0,
-                            ),
-                          );
-                        },
-                        scaleFactor: 0.5,
-                        child: Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.green.withOpacity(0.3),
-                              radius: 16.sp,
-                              child: FaIcon(
-                                FontAwesomeIcons.ethereum,
-                                color: Colors.green,
-                                size: 20.sp,
+                        const Spacer(),
+                        BouncingWidget(
+                          onPressed: () {
+                            bottomSheet(
+                              dismissable: true,
+                              child: SwapBottomSheet(
+                                pageController: pageController,
+                                index: 1,
                               ),
-                            ),
-                            SizedBox(width: 10.w),
-                            Text(
-                              "ETH",
-                              style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
-                            ),
-                            SizedBox(width: 5.w),
-                            Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              color: formTextAreaDefault,
-                              size: 20.sp,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    "\$0.00",
-                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                          color: formTextAreaDefault,
-                          fontSize: 14.sp,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 15.h),
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Container(
-                  height: 110.h,
-                  width: 335.w,
-                  padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
-                  decoration: BoxDecoration(
-                    color: whiteColor,
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "To",
-                        style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                              color: blackColor,
-                              fontWeight: FontWeight.w600,
-                            ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "0",
-                            style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                                  color: formTextAreaDefault,
-                                  fontSize: 30.sp,
-                                ),
-                          ),
-                          const Spacer(),
-                          BouncingWidget(
-                            onPressed: () {
-                              bottomSheet(
-                                dismissable: true,
-                                child: SwapBottomSheet(
-                                  pageController: pageController,
-                                  index: 1,
-                                ),
-                              );
-                            },
-                            scaleFactor: 0.5,
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor: Colors.amber.withOpacity(0.3),
-                                  radius: 16.sp,
-                                  child: FaIcon(
-                                    FontAwesomeIcons.bitcoinSign,
-                                    color: Colors.amber,
-                                    size: 20.sp,
-                                  ),
-                                ),
-                                SizedBox(width: 10.w),
-                                Text(
-                                  "BTC",
-                                  style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
-                                ),
-                                SizedBox(width: 5.w),
-                                Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  color: formTextAreaDefault,
+                            );
+                          },
+                          scaleFactor: 0.5,
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: Colors.amber.withOpacity(0.3),
+                                radius: 16.sp,
+                                child: FaIcon(
+                                  FontAwesomeIcons.bitcoinSign,
+                                  color: Colors.amber,
                                   size: 20.sp,
                                 ),
-                              ],
-                            ),
+                              ),
+                              SizedBox(width: 10.w),
+                              Text(
+                                "BTC",
+                                style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                              ),
+                              SizedBox(width: 5.w),
+                              Icon(
+                                Icons.keyboard_arrow_down_rounded,
+                                color: formTextAreaDefault,
+                                size: 20.sp,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "\$0.00",
+                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            color: formTextAreaDefault,
+                            fontSize: 14.sp,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              Positioned(
+                top: -27.h,
+                child: Container(
+                  width: 335.w,
+                  alignment: Alignment.center,
+                  child: BouncingWidget(
+                    onPressed: () {},
+                    scaleFactor: 0.5,
+                    child: Container(
+                      height: 40.h,
+                      width: 70.w,
+                      decoration: BoxDecoration(
+                        color: formHeaders,
+                        borderRadius: BorderRadius.circular(5.r),
+                      ),
+                      alignment: Alignment.center,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FaIcon(
+                            FontAwesomeIcons.arrowUp,
+                            color: whiteColor,
+                            size: 20.sp,
+                          ),
+                          SizedBox(width: 2.w),
+                          FaIcon(
+                            FontAwesomeIcons.arrowDown,
+                            color: whiteColor,
+                            size: 20.sp,
                           ),
                         ],
                       ),
-                      Text(
-                        "\$0.00",
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                              color: formTextAreaDefault,
-                              fontSize: 14.sp,
-                            ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-                Positioned(
-                  top: -27.h,
-                  child: Container(
-                    width: 335.w,
-                    alignment: Alignment.center,
-                    child: BouncingWidget(
-                      onPressed: () {},
-                      scaleFactor: 0.5,
-                      child: Container(
+              )
+            ],
+          ),
+          const Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              NumericButton(pinController: pinController, number: "1"),
+              NumericButton(pinController: pinController, number: "2"),
+              NumericButton(pinController: pinController, number: "3"),
+            ],
+          ),
+          SizedBox(height: 25.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              NumericButton(pinController: pinController, number: "4"),
+              NumericButton(pinController: pinController, number: "5"),
+              NumericButton(pinController: pinController, number: "6"),
+            ],
+          ),
+          SizedBox(height: 25.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              NumericButton(pinController: pinController, number: "7"),
+              NumericButton(pinController: pinController, number: "8"),
+              NumericButton(pinController: pinController, number: "9"),
+            ],
+          ),
+          SizedBox(height: 25.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              NumericButton(pinController: pinController, number: "•"),
+              NumericButton(pinController: pinController, number: "0"),
+              NumericButton(pinController: pinController, number: "<"),
+            ],
+          ),
+          SizedBox(height: 25.h),
+          Container(
+            height: 80.h,
+            width: 375.w,
+            color: whiteColor,
+            child: Column(
+              children: [
+                SizedBox(height: 20.h),
+                GestureDetector(
+                  onTap: () {
+                    if (controller.swap.value) {
+                      bottomSheet(
+                        dismissable: true,
+                        child: ConfirmSwapBottomSheet(pinController: pinController),
+                      );
+                    }
+                  },
+                  child: Obx(
+                    () {
+                      return Container(
                         height: 40.h,
-                        width: 70.w,
+                        width: 295.w,
                         decoration: BoxDecoration(
-                          color: formHeaders,
-                          borderRadius: BorderRadius.circular(5.r),
+                          color: controller.swap.value ? priColor : formTextAreaDefault,
+                          borderRadius: BorderRadius.circular(12.r),
                         ),
                         alignment: Alignment.center,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FaIcon(
-                              FontAwesomeIcons.arrowUp,
-                              color: whiteColor,
-                              size: 20.sp,
-                            ),
-                            SizedBox(width: 2.w),
-                            FaIcon(
-                              FontAwesomeIcons.arrowDown,
-                              color: whiteColor,
-                              size: 20.sp,
-                            ),
-                          ],
+                        child: Text(
+                          "Swap",
+                          style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
                         ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                NumericButton(pinController: pinController, number: "1"),
-                NumericButton(pinController: pinController, number: "2"),
-                NumericButton(pinController: pinController, number: "3"),
-              ],
-            ),
-            SizedBox(height: 40.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                NumericButton(pinController: pinController, number: "4"),
-                NumericButton(pinController: pinController, number: "5"),
-                NumericButton(pinController: pinController, number: "6"),
-              ],
-            ),
-            SizedBox(height: 40.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                NumericButton(pinController: pinController, number: "7"),
-                NumericButton(pinController: pinController, number: "8"),
-                NumericButton(pinController: pinController, number: "9"),
-              ],
-            ),
-            SizedBox(height: 40.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                NumericButton(pinController: pinController, number: "•"),
-                NumericButton(pinController: pinController, number: "0"),
-                NumericButton(pinController: pinController, number: "<"),
-              ],
-            ),
-            SizedBox(height: 30.h),
-            Container(
-              height: defaultTargetPlatform == TargetPlatform.iOS ? 100.h : 80.h,
-              width: 375.w,
-              color: whiteColor,
-              child: Column(
-                children: [
-                  SizedBox(height: 20.h),
-                  GestureDetector(
-                    onTap: () {
-                      if (controller.swap.value) {
-                        bottomSheet(
-                          dismissable: true,
-                          child: ConfirmSwapBottomSheet(pinController: pinController),
-                        );
-                      }
+                      );
                     },
-                    child: Obx(
-                      () {
-                        return Container(
-                          height: 40.h,
-                          width: 295.w,
-                          decoration: BoxDecoration(
-                            color: controller.swap.value ? priColor : formTextAreaDefault,
-                            borderRadius: BorderRadius.circular(12.r),
-                          ),
-                          alignment: Alignment.center,
-                          child: Text(
-                            "Swap",
-                            style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
-                          ),
-                        );
-                      },
-                    ),
                   ),
-                  SizedBox(height: 10.h),
-                ],
-              ),
+                ),
+                SizedBox(height: 10.h),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -7,9 +7,11 @@ import 'package:zilbit/constants.dart';
 import 'package:zilbit/view/home/widgets/app_bar_button.dart';
 import 'package:zilbit/view/home/widgets/recent_trades.dart';
 import 'package:zilbit/view/profile/user_profile.dart';
+import 'package:zilbit/view/verification/verification.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key? key, required this.pageController}) : super(key: key);
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -100,11 +102,11 @@ class Home extends StatelessWidget {
                       SizedBox(height: 30.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: const [
-                          AppBarButton(title: "Send"),
-                          AppBarButton(title: "Deposit"),
-                          AppBarButton(title: "Swap"),
-                          AppBarButton(title: "Refer"),
+                        children: [
+                          const AppBarButton(title: "Send"),
+                          const AppBarButton(title: "Deposit"),
+                          AppBarButton(title: "Swap", pageController: pageController),
+                          const AppBarButton(title: "Receive"),
                         ],
                       )
                     ],
@@ -311,17 +313,22 @@ complete your profile verification.""",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                   SizedBox(height: 20.h),
-                  Container(
-                    height: 50.h,
-                    width: 295.w,
-                    decoration: BoxDecoration(
-                      color: priColor,
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Complete Verification",
-                      style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(() => const Verification());
+                    },
+                    child: Container(
+                      height: 50.h,
+                      width: 295.w,
+                      decoration: BoxDecoration(
+                        color: priColor,
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Complete Verification",
+                        style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
+                      ),
                     ),
                   ),
                 ],
@@ -371,6 +378,7 @@ complete your profile verification.""",
                 },
               ),
             ),
+            SizedBox(height: 20.h),
           ],
         ),
       ),

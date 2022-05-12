@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/home/home_controller.dart';
 import 'package:zilbit/view/home/home.dart';
+import 'package:zilbit/view/home/swap.dart';
 import 'package:zilbit/view/home/widgets/bottom_nav_bar_button.dart';
 import 'package:zilbit/view/marketplace/marketplace.dart';
-import 'package:zilbit/view/trades/trades.dart';
 import 'package:zilbit/view/wallet/wallet.dart';
 
 class Dashboard extends GetWidget<HomeController> {
@@ -28,11 +28,11 @@ class Dashboard extends GetWidget<HomeController> {
           onPageChanged: (index) {
             controller.currentPage.value = index;
           },
-          children: const [
-            Home(),
-            Marketplace(),
-            Trades(),
-            Wallet(),
+          children: [
+            Home(pageController: pageController),
+            const Marketplace(),
+            const Swap(),
+            Wallet(pageController: pageController),
           ],
         ),
       ),
@@ -46,21 +46,25 @@ class Dashboard extends GetWidget<HomeController> {
           children: [
             BottomNavBarButton(
               title: "Home",
+              icon: "home",
               index: 0,
               pageController: pageController,
             ),
             BottomNavBarButton(
               title: "Marketplace",
+              icon: "marketplace",
               index: 1,
               pageController: pageController,
             ),
             BottomNavBarButton(
-              title: "Trades",
+              title: "Swap",
+              icon: "swap dash",
               index: 2,
               pageController: pageController,
             ),
             BottomNavBarButton(
               title: "Wallet",
+              icon: "wallet",
               index: 3,
               pageController: pageController,
             ),

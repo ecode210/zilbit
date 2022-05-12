@@ -3,11 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
-import 'package:zilbit/view/home/swap.dart';
+import 'package:zilbit/controller/home/home_controller.dart';
+import 'package:zilbit/view/home/widgets/send_bottomsheet.dart';
+import 'package:zilbit/view/wallet/receive.dart';
 
-class AppBarButton extends StatelessWidget {
-  const AppBarButton({Key? key, required this.title}) : super(key: key);
+class AppBarButton extends GetWidget<HomeController> {
+  const AppBarButton({Key? key, required this.title, this.pageController}) : super(key: key);
   final String title;
+  final PageController? pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +20,21 @@ class AppBarButton extends StatelessWidget {
           onTap: () {
             switch (title) {
               case "Send":
+                controller.sendContact.value = "";
+                TransactionBottomSheet.send(context: context, controller: controller);
                 break;
               case "Deposit":
+                TransactionBottomSheet.modeOfDeposit(context: context, controller: controller);
                 break;
               case "Swap":
-                Get.to(() => Swap());
+                pageController!.animateToPage(
+                  2,
+                  duration: const Duration(milliseconds: 200),
+                  curve: Curves.fastLinearToSlowEaseIn,
+                );
                 break;
-              case "Refer":
+              case "Receive":
+                Get.to(() => Receive());
                 break;
             }
           },
