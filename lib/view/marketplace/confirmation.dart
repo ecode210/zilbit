@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:zilbit/constants.dart';
@@ -122,8 +123,13 @@ class Confirmation extends GetWidget<MarketplaceController> {
                             child: Row(
                               children: [
                                 CircleAvatar(
-                                  backgroundColor: Colors.amber.withOpacity(0.3),
+                                  backgroundColor: Colors.amber,
                                   radius: 20.sp,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.hashtag,
+                                    color: whiteColor,
+                                    size: 20.sp,
+                                  ),
                                 ),
                                 SizedBox(width: 10.w),
                                 Text(
@@ -153,8 +159,13 @@ class Confirmation extends GetWidget<MarketplaceController> {
                             child: Row(
                               children: [
                                 CircleAvatar(
-                                  backgroundColor: Colors.purple.withOpacity(0.3),
+                                  backgroundColor: Colors.purple,
                                   radius: 20.sp,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.user,
+                                    color: whiteColor,
+                                    size: 20.sp,
+                                  ),
                                 ),
                                 SizedBox(width: 10.w),
                                 Text(
@@ -184,8 +195,13 @@ class Confirmation extends GetWidget<MarketplaceController> {
                             child: Row(
                               children: [
                                 CircleAvatar(
-                                  backgroundColor: Colors.green.withOpacity(0.3),
+                                  backgroundColor: Colors.tealAccent.shade700,
                                   radius: 20.sp,
+                                  child: FaIcon(
+                                    FontAwesomeIcons.buildingColumns,
+                                    color: whiteColor,
+                                    size: 20.sp,
+                                  ),
                                 ),
                                 SizedBox(width: 10.w),
                                 Text(

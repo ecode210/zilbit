@@ -6,12 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/controller/authentication/register_controller.dart';
-import 'package:zilbit/view/authentication/verification_code.dart';
-import 'package:zilbit/view/authentication/widgets/email_sign_up.dart';
-import 'package:zilbit/view/authentication/widgets/phone_sign_up.dart';
+import 'package:zilbit/view/authentication/welcome.dart';
+import 'package:zilbit/view/authentication/widgets/email_login.dart';
+import 'package:zilbit/view/authentication/widgets/phone_login.dart';
 
-class Register extends GetWidget<RegisterController> {
-  Register({Key? key}) : super(key: key);
+class Login extends GetWidget<RegisterController> {
+  Login({Key? key}) : super(key: key);
   final PageController _pageController = PageController(initialPage: 0);
 
   @override
@@ -56,14 +56,12 @@ class Register extends GetWidget<RegisterController> {
                 ),
                 SizedBox(height: 5.h),
                 Text(
-                  "Register",
+                  "Login",
                   style: Theme.of(context).textTheme.headline2,
                 ),
                 SizedBox(height: 10.h),
                 Text(
-                  """
-Enter your Email and Password to get
-started""",
+                  "Enter your Email and Password to log in to\nyour account",
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
@@ -82,9 +80,9 @@ started""",
                       scaleFactor: 0.5,
                       child: Obx(() {
                         return Text(
-                          "Email Sign up",
+                          "Email Login",
                           style: Theme.of(context).textTheme.headline4!.copyWith(
-                                color: controller.registerTab.value == 0 ? blackColor : formTextAreaDefault,
+                                color: controller.loginTab.value == 0 ? blackColor : formTextAreaDefault,
                               ),
                         );
                       }),
@@ -101,9 +99,9 @@ started""",
                       scaleFactor: 0.5,
                       child: Obx(() {
                         return Text(
-                          "Phone Sign up",
+                          "Phone Login",
                           style: Theme.of(context).textTheme.headline4!.copyWith(
-                                color: controller.registerTab.value == 1 ? blackColor : formTextAreaDefault,
+                                color: controller.loginTab.value == 1 ? blackColor : formTextAreaDefault,
                               ),
                         );
                       }),
@@ -125,8 +123,8 @@ started""",
                         ),
                         AnimatedPositioned(
                           duration: const Duration(milliseconds: 200),
-                          left: controller.registerTab.value == 0 ? 0 : null,
-                          right: controller.registerTab.value == 1 ? 0 : null,
+                          left: controller.loginTab.value == 0 ? 0 : null,
+                          right: controller.loginTab.value == 1 ? 0 : null,
                           top: -1.5.h,
                           child: Container(
                             width: 187.w,
@@ -150,72 +148,30 @@ started""",
                     physics: const BouncingScrollPhysics(),
                     controller: _pageController,
                     onPageChanged: (page) {
-                      controller.registerTab.value = page;
+                      controller.loginTab.value = page;
                     },
                     children: const [
-                      EmailSignUp(),
-                      PhoneSignUp(),
+                      EmailLogin(),
+                      PhoneLogin(),
                     ],
                   ),
                 ),
                 SizedBox(height: 10.h),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(width: 25.w),
-                    Obx(
-                      () {
-                        return Transform.scale(
-                          scale: 1.25,
-                          child: SizedBox(
-                            height: 25.h,
-                            width: 25.h,
-                            child: Checkbox(
-                              value: controller.registerTC.value,
-                              fillColor: MaterialStateProperty.all(priColor),
-                              checkColor: whiteColor,
-                              shape: const StadiumBorder(),
-                              splashRadius: 10,
-                              onChanged: (value) {
-                                controller.registerTC.value = value!;
-                              },
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(width: 12.w),
-                    Expanded(
-                      child: RichText(
-                        textAlign: TextAlign.left,
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: """
-By submitting this application you confirm that you
-are authorized to share this information and agree
-with our """,
-                              style: Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 12.sp),
-                            ),
-                            TextSpan(
-                              text: "Terms and condition",
-                              style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                                    fontSize: 12.sp,
-                                    color: priColor,
-                                  ),
-                              recognizer: TapGestureRecognizer()..onTap = () {},
-                            ),
-                          ],
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Send OTP",
+                    style: Theme.of(context).textTheme.button!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w700,
                         ),
-                      ),
-                    ),
-                    SizedBox(width: 25.w),
-                  ],
+                  ),
                 ),
                 const Spacer(),
                 GestureDetector(
                   onTap: () {
-                    Get.to(() => VerificationCode());
+                    Get.to(() => const Welcome());
                   },
                   child: Container(
                     height: 60.h,
@@ -234,7 +190,7 @@ with our """,
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      "Send Verification Code",
+                      "Login",
                       style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
                     ),
                   ),

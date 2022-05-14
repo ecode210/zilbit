@@ -1,7 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
+import 'package:zilbit/view/wallet/trade.dart';
 
 class WalletGraph extends StatefulWidget {
   const WalletGraph({Key? key}) : super(key: key);
@@ -13,21 +15,26 @@ class WalletGraph extends StatefulWidget {
 class _WalletGraphState extends State<WalletGraph> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        SizedBox(
-          height: 190.h,
-          width: 335.w,
-        ),
-        Positioned(
-          right: -15.w,
-          child: SizedBox(
-            width: 335.w,
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => const Trade());
+      },
+      child: Stack(
+        children: [
+          SizedBox(
             height: 190.h,
-            child: LineChart(mainData()),
+            width: 335.w,
           ),
-        ),
-      ],
+          Positioned(
+            right: -15.w,
+            child: SizedBox(
+              width: 335.w,
+              height: 190.h,
+              child: LineChart(mainData()),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

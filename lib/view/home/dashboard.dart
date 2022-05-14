@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
@@ -16,59 +17,62 @@ class Dashboard extends GetWidget<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: priColor,
-      body: SizedBox(
-        height: 812.h,
-        width: 375.w,
-        child: PageView(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          controller: pageController,
-          onPageChanged: (index) {
-            controller.currentPage.value = index;
-          },
-          children: [
-            Home(pageController: pageController),
-            const Marketplace(),
-            const Swap(),
-            Wallet(pageController: pageController),
-          ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark,
+      child: Scaffold(
+        backgroundColor: priColor,
+        body: SizedBox(
+          height: 812.h,
+          width: 375.w,
+          child: PageView(
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            controller: pageController,
+            onPageChanged: (index) {
+              controller.currentPage.value = index;
+            },
+            children: [
+              Home(pageController: pageController),
+              const Marketplace(),
+              const Swap(),
+              Wallet(pageController: pageController),
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: Container(
-        height: defaultTargetPlatform == TargetPlatform.iOS ? 90.h : 70.h,
-        width: 375.w,
-        color: whiteColor,
-        padding: defaultTargetPlatform == TargetPlatform.iOS ? EdgeInsets.only(bottom: 20.h) : null,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            BottomNavBarButton(
-              title: "Home",
-              icon: "home",
-              index: 0,
-              pageController: pageController,
-            ),
-            BottomNavBarButton(
-              title: "Marketplace",
-              icon: "marketplace",
-              index: 1,
-              pageController: pageController,
-            ),
-            BottomNavBarButton(
-              title: "Swap",
-              icon: "swap dash",
-              index: 2,
-              pageController: pageController,
-            ),
-            BottomNavBarButton(
-              title: "Wallet",
-              icon: "wallet",
-              index: 3,
-              pageController: pageController,
-            ),
-          ],
+        bottomNavigationBar: Container(
+          height: defaultTargetPlatform == TargetPlatform.iOS ? 90.h : 70.h,
+          width: 375.w,
+          color: whiteColor,
+          padding: defaultTargetPlatform == TargetPlatform.iOS ? EdgeInsets.only(bottom: 20.h) : null,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              BottomNavBarButton(
+                title: "Home",
+                icon: "home",
+                index: 0,
+                pageController: pageController,
+              ),
+              BottomNavBarButton(
+                title: "Marketplace",
+                icon: "marketplace",
+                index: 1,
+                pageController: pageController,
+              ),
+              BottomNavBarButton(
+                title: "Swap",
+                icon: "swap dash",
+                index: 2,
+                pageController: pageController,
+              ),
+              BottomNavBarButton(
+                title: "Wallet",
+                icon: "wallet",
+                index: 3,
+                pageController: pageController,
+              ),
+            ],
+          ),
         ),
       ),
     );

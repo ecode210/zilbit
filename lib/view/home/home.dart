@@ -2,9 +2,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
 import 'package:zilbit/view/home/widgets/app_bar_button.dart';
+import 'package:zilbit/view/home/widgets/market_overview_graph.dart';
 import 'package:zilbit/view/home/widgets/recent_trades.dart';
 import 'package:zilbit/view/profile/user_profile.dart';
 import 'package:zilbit/view/verification/verification.dart';
@@ -136,10 +138,119 @@ class Home extends StatelessWidget {
             SizedBox(height: 15.h),
             Container(
               height: 160.h,
+              padding: EdgeInsets.all(20.w),
               margin: EdgeInsets.symmetric(horizontal: 20.w),
               decoration: BoxDecoration(
                 color: whiteColor,
                 borderRadius: BorderRadius.circular(16.r),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: Colors.amber,
+                        radius: 20.w,
+                        child: FaIcon(
+                          FontAwesomeIcons.bitcoinSign,
+                          color: whiteColor,
+                          size: 20.sp,
+                        ),
+                      ),
+                      SizedBox(width: 10.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Bitcoin",
+                            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                                  color: blackColor,
+                                  fontSize: 16.sp,
+                                ),
+                          ),
+                          Text(
+                            "BTC",
+                            style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      const MarketOverviewGraph(color: Colors.green),
+                      SizedBox(width: 20.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "\$39,397.73",
+                            style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                          ),
+                          Text(
+                            "+3.00%",
+                            style: Theme.of(context).textTheme.button!.copyWith(
+                                  color: Colors.green,
+                                  fontSize: 12.sp,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10.h),
+                  Divider(
+                    color: formTextAreaDefault,
+                    thickness: 1.h,
+                  ),
+                  SizedBox(height: 10.h),
+                  Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: priColor,
+                        radius: 20.w,
+                        child: FaIcon(
+                          FontAwesomeIcons.ethereum,
+                          color: whiteColor,
+                          size: 20.sp,
+                        ),
+                      ),
+                      SizedBox(width: 10.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Ethereum",
+                            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                                  color: blackColor,
+                                  fontSize: 16.sp,
+                                ),
+                          ),
+                          Text(
+                            "ETH",
+                            style: Theme.of(context).textTheme.bodyText1,
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      const MarketOverviewGraph(color: Colors.red),
+                      SizedBox(width: 20.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "\$39,397.73",
+                            style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                          ),
+                          Text(
+                            "-11.00%",
+                            style: Theme.of(context).textTheme.button!.copyWith(
+                                  color: Colors.red,
+                                  fontSize: 12.sp,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
             SizedBox(height: 20.h),

@@ -1,3 +1,4 @@
+import 'package:bouncing_widget/bouncing_widget.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -48,10 +49,11 @@ class VendorProfile extends GetWidget<MarketplaceController> {
                     const Spacer(),
                     Obx(
                       () {
-                        return GestureDetector(
-                          onTap: () {
+                        return BouncingWidget(
+                          onPressed: () {
                             controller.vendorFavorite.value = !controller.vendorFavorite.value;
                           },
+                          scaleFactor: 1,
                           child: Icon(
                             controller.vendorFavorite.value ? Icons.favorite_rounded : Icons.favorite_outline_rounded,
                             color: controller.vendorFavorite.value ? Colors.redAccent : formTextAreaDefault,

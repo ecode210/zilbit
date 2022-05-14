@@ -54,7 +54,7 @@ class TransactionPin extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 90.h),
+              SizedBox(height: 80.h),
               Text(
                 "Enter your PIN",
                 style: Theme.of(context).textTheme.headline2,
@@ -97,7 +97,7 @@ class TransactionPin extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 40.h),
+              SizedBox(height: 80.h),
               GestureDetector(
                 onTap: () {
                   Get.to(() => const Welcome());
@@ -109,7 +109,7 @@ class TransactionPin extends StatelessWidget {
                       ),
                 ),
               ),
-              SizedBox(height: 80.h),
+              SizedBox(height: 50.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

@@ -65,24 +65,37 @@ class MarketplaceOffer extends GetWidget<MarketplaceController> {
             direction: Axis.horizontal,
           ),
           SizedBox(height: 5.h),
-          Text(
-            "Rate",
-            style: Theme.of(context).textTheme.subtitle2!.copyWith(color: blackColor),
-          ),
-          RichText(
-            text: TextSpan(
-              style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                    fontSize: 10.sp,
-                    color: blackColor,
-                  ),
+          Container(
+            // width: 335.w,
+            padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+            decoration: BoxDecoration(
+              color: priColor.withOpacity(0.15),
+              borderRadius: BorderRadius.circular(5.r),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const TextSpan(text: "₦ "),
-                TextSpan(
-                  text: "583.00",
-                  style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                        fontSize: 18.sp,
-                        color: blackColor,
+                Text(
+                  "Rate",
+                  style: Theme.of(context).textTheme.subtitle2!.copyWith(color: priColor),
+                ),
+                RichText(
+                  text: TextSpan(
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                          fontSize: 10.sp,
+                          color: secColor,
+                        ),
+                    children: [
+                      const TextSpan(text: "₦ "),
+                      TextSpan(
+                        text: "583.00",
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                              fontSize: 18.sp,
+                              color: secColor,
+                            ),
                       ),
+                    ],
+                  ),
                 ),
               ],
             ),
