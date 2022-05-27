@@ -24,7 +24,7 @@ class TransactionDetails extends GetWidget<HomeController> {
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Column(
               children: [
-                SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+                SizedBox(height: 20.h),
                 SizedBox(
                   height: 24.h,
                   width: 375.w,
@@ -214,7 +214,7 @@ class TransactionDetails extends GetWidget<HomeController> {
                           alignment: Alignment.center,
                           child: FaIcon(
                             FontAwesomeIcons.download,
-                            size: 25.sp,
+                            size: 20.sp,
                             color: blackColor,
                           ),
                         ),
@@ -240,7 +240,7 @@ class TransactionDetails extends GetWidget<HomeController> {
                           alignment: Alignment.center,
                           child: FaIcon(
                             FontAwesomeIcons.shareNodes,
-                            size: 25.sp,
+                            size: 20.sp,
                             color: blackColor,
                           ),
                         ),
@@ -266,7 +266,7 @@ class TransactionDetails extends GetWidget<HomeController> {
                           alignment: Alignment.center,
                           child: FaIcon(
                             FontAwesomeIcons.circleQuestion,
-                            size: 25.sp,
+                            size: 20.sp,
                             color: blackColor,
                           ),
                         ),

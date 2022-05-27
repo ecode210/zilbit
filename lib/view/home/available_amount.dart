@@ -23,7 +23,7 @@ class AvailableAmount extends GetWidget<HomeController> {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             children: [
-              SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+              SizedBox(height: 20.h),
               SizedBox(
                 height: 24.h,
                 width: 375.w,
@@ -211,7 +211,7 @@ class AvailableAmount extends GetWidget<HomeController> {
                   hintText: "Enter send amount",
                   hintStyle: Theme.of(context).textTheme.subtitle1,
                   suffixIcon: Padding(
-                    padding: EdgeInsets.only(top: 15.h, right: 10.w),
+                    padding: EdgeInsets.only(top: 20.h, right: 10.w),
                     child: Text(
                       "Send Max",
                       style: Theme.of(context).textTheme.bodyText1!.copyWith(
@@ -228,7 +228,7 @@ class AvailableAmount extends GetWidget<HomeController> {
                   Get.to(() => const SendNotificationReceived());
                 },
                 child: Container(
-                  height: 40.h,
+                  height: 50.h,
                   width: 335.w,
                   decoration: BoxDecoration(
                     color: priColor,
@@ -241,7 +241,7 @@ class AvailableAmount extends GetWidget<HomeController> {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

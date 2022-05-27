@@ -31,7 +31,7 @@ class PhoneSignUp extends StatelessWidget {
           ),
           const AuthTextField(
             textInputType: TextInputType.text,
-            hintText: "••••",
+            hintText: "******",
           ),
           const Spacer(),
           Text(

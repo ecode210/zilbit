@@ -31,7 +31,7 @@ class Confirmation extends GetWidget<MarketplaceController> {
                 clipBehavior: Clip.none,
                 children: [
                   Container(
-                    height: defaultTargetPlatform == TargetPlatform.iOS ? 190.h : 215.h,
+                    height: 190.h,
                     width: 375.w,
                     color: priColor,
                     alignment: Alignment.centerRight,
@@ -40,13 +40,13 @@ class Confirmation extends GetWidget<MarketplaceController> {
                     bottom: 0,
                     right: 0,
                     child: Container(
-                      height: defaultTargetPlatform == TargetPlatform.iOS ? 240.h : 265.h,
+                      height: 240.h,
                       width: 375.w,
                       color: priColor,
                       alignment: Alignment.centerRight,
                       child: SvgPicture.asset(
                         "assets/svg/confirmation appbar pattern.svg",
-                        height: defaultTargetPlatform == TargetPlatform.iOS ? 240.h : 265.h,
+                        height: 240.h,
                         width: 375.w,
                         fit: BoxFit.fitHeight,
                         color: whiteColor.withOpacity(0.1),
@@ -55,8 +55,7 @@ class Confirmation extends GetWidget<MarketplaceController> {
                   ),
                   Container(
                     width: 375.w,
-                    padding:
-                        EdgeInsets.fromLTRB(20.w, defaultTargetPlatform == TargetPlatform.iOS ? 60.h : 50.h, 20.w, 0),
+                    padding: EdgeInsets.fromLTRB(20.w, 40.h, 20.w, 0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -97,8 +96,7 @@ class Confirmation extends GetWidget<MarketplaceController> {
                   children: [
                     Container(
                       width: 375.w,
-                      padding:
-                          EdgeInsets.fromLTRB(0, 85.h, 0, defaultTargetPlatform == TargetPlatform.iOS ? 100.h : 80.h),
+                      padding: EdgeInsets.fromLTRB(0, 85.h, 0, 80.h),
                       decoration: BoxDecoration(
                         color: backgroundColor,
                         borderRadius: BorderRadius.only(
@@ -347,7 +345,6 @@ class Confirmation extends GetWidget<MarketplaceController> {
                     Positioned(
                       bottom: 0,
                       child: Container(
-                        height: defaultTargetPlatform == TargetPlatform.iOS ? 100.h : 80.h,
                         width: 375.w,
                         color: whiteColor,
                         child: Column(
@@ -358,7 +355,7 @@ class Confirmation extends GetWidget<MarketplaceController> {
                                 Get.to(() => const NotificationReceived());
                               },
                               child: Container(
-                                height: 40.h,
+                                height: 50.h,
                                 width: 295.w,
                                 decoration: BoxDecoration(
                                   color: priColor,
@@ -371,7 +368,7 @@ class Confirmation extends GetWidget<MarketplaceController> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 10.h),
+                            SizedBox(height: 20.h),
                           ],
                         ),
                       ),

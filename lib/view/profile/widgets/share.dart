@@ -7,7 +7,7 @@ import 'package:zilbit/view/profile/widgets/share_list.dart';
 class Share {
   static void shareModal({required BuildContext context}) {
     bottomSheet(
-      height: 300.h,
+      height: 320.h,
       dismissable: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,9 +18,10 @@ class Share {
           ),
           SizedBox(height: 15.h),
           SizedBox(
-            height: 95.h,
+            height: 110.h,
             width: 335.w,
             child: ListView.separated(
+              shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
               itemCount: 6,
@@ -32,7 +33,7 @@ class Share {
               },
             ),
           ),
-          SizedBox(height: 20.h),
+          const Spacer(),
           Align(
             alignment: Alignment.center,
             child: Text(
@@ -43,7 +44,7 @@ class Share {
                   ),
             ),
           ),
-          SizedBox(height: 15.h),
+          const Spacer(),
           Container(
             height: 55.h,
             width: 335.w,
@@ -71,6 +72,7 @@ class Share {
               ],
             ),
           ),
+          SizedBox(height: 10.h),
         ],
       ),
     );

@@ -48,7 +48,7 @@ class _SearchUsersState extends State<SearchUsers> {
           child: Obx(() {
             return Column(
               children: [
-                SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+                SizedBox(height: 20.h),
                 SizedBox(
                   height: 24.h,
                   width: 375.w,
@@ -150,6 +150,7 @@ class _SearchUsersState extends State<SearchUsers> {
                 if (controller.contactPermission.value)
                   Expanded(
                     child: ListView.separated(
+                      physics: const BouncingScrollPhysics(),
                       itemCount: controller.contacts!.length,
                       itemBuilder: (context, index) {
                         return GestureDetector(
@@ -174,7 +175,7 @@ class _SearchUsersState extends State<SearchUsers> {
                                 SizedBox(width: 15.w),
                                 Text(
                                   controller.contacts![index].displayName,
-                                  style: Theme.of(context).textTheme.button!.copyWith(color: Colors.black),
+                                  style: Theme.of(context).textTheme.headline4,
                                 ),
                               ],
                             ),
@@ -196,7 +197,7 @@ class _SearchUsersState extends State<SearchUsers> {
                       Get.back();
                     },
                     child: Container(
-                      height: 40.h,
+                      height: 50.h,
                       width: 335.w,
                       decoration: BoxDecoration(
                         color: priColor,
@@ -209,7 +210,7 @@ class _SearchUsersState extends State<SearchUsers> {
                       ),
                     ),
                   ),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
               ],
             );
           }),

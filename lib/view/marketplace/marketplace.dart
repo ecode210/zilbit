@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:zilbit/constants.dart';
@@ -28,7 +28,7 @@ class Marketplace extends GetWidget<MarketplaceController> {
               clipBehavior: Clip.none,
               children: [
                 Container(
-                  height: defaultTargetPlatform == TargetPlatform.iOS ? 190.h : 215.h,
+                  height: 190.h,
                   width: 375.w,
                   color: priColor,
                   alignment: Alignment.centerRight,
@@ -37,13 +37,13 @@ class Marketplace extends GetWidget<MarketplaceController> {
                   bottom: 0,
                   right: 0,
                   child: Container(
-                    height: defaultTargetPlatform == TargetPlatform.iOS ? 240.h : 265.h,
+                    height: 240.h,
                     width: 375.w,
                     color: priColor,
                     alignment: Alignment.centerRight,
                     child: SvgPicture.asset(
                       "assets/svg/marketplace appbar pattern.svg",
-                      height: defaultTargetPlatform == TargetPlatform.iOS ? 240.h : 265.h,
+                      height: 240.h,
                       width: 375.w,
                       fit: BoxFit.fitHeight,
                       color: whiteColor.withOpacity(0.1),
@@ -51,45 +51,53 @@ class Marketplace extends GetWidget<MarketplaceController> {
                   ),
                 ),
                 Container(
-                  height: defaultTargetPlatform == TargetPlatform.iOS ? 190.h : 215.h,
+                  height: 190.h,
                   width: 375.w,
                   padding: EdgeInsets.fromLTRB(20.w, 20.h, 20.w, 0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      SizedBox(height: 30.h),
                       Row(
                         children: [
-                          Obx(
-                            () {
-                              return DropdownButton(
-                                value: controller.selectedMarketplace.value,
-                                borderRadius: BorderRadius.circular(10.r),
-                                dropdownColor: priColor,
-                                elevation: 0,
-                                itemHeight: 50.h,
-                                underline: const Divider(
-                                  color: Colors.transparent,
-                                  thickness: 0,
-                                ),
-                                icon: Icon(
-                                  Icons.arrow_drop_down_rounded,
-                                  color: whiteColor,
-                                  size: 20.sp,
-                                ),
-                                onChanged: (value) {
-                                  controller.selectedMarketplace.value = value.toString();
-                                },
-                                items: controller.marketplace.map((String items) {
-                                  return DropdownMenuItem(
-                                    value: items,
-                                    child: Text(
-                                      items,
-                                      style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 20.sp),
-                                    ),
-                                  );
-                                }).toList(),
-                              );
-                            },
+                          Container(
+                            height: 30.h,
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(50.r),
+                            ),
+                            alignment: Alignment.center,
+                            child: Obx(
+                              () {
+                                return DropdownButton(
+                                  value: controller.selectedMarketplace.value,
+                                  borderRadius: BorderRadius.circular(10.r),
+                                  dropdownColor: priColor,
+                                  elevation: 0,
+                                  underline: const Divider(
+                                    color: Colors.transparent,
+                                    thickness: 0,
+                                  ),
+                                  icon: Icon(
+                                    Icons.arrow_drop_down_rounded,
+                                    color: whiteColor,
+                                    size: 20.sp,
+                                  ),
+                                  onChanged: (value) {
+                                    controller.selectedMarketplace.value = value.toString();
+                                  },
+                                  items: controller.marketplace.map((String items) {
+                                    return DropdownMenuItem(
+                                      value: items,
+                                      child: Text(
+                                        items,
+                                        style: Theme.of(context).textTheme.bodyText2!.copyWith(fontSize: 20.sp),
+                                      ),
+                                    );
+                                  }).toList(),
+                                );
+                              },
+                            ),
                           ),
                           const Spacer(),
                           Container(
@@ -145,17 +153,18 @@ class Marketplace extends GetWidget<MarketplaceController> {
                           )
                         ],
                       ),
-                      SizedBox(height: 20.h),
+                      const Spacer(),
                       Row(
                         children: [
                           Obx(
                             () {
                               return Container(
+                                height: 40.h,
                                 decoration: BoxDecoration(
                                   color: secColor,
-                                  borderRadius: BorderRadius.circular(20.r),
+                                  borderRadius: BorderRadius.circular(100.r),
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 child: DropdownButton(
                                   value: controller.selectedTransactionType.value,
                                   borderRadius: BorderRadius.circular(10.r),
@@ -193,11 +202,12 @@ class Marketplace extends GetWidget<MarketplaceController> {
                           Obx(
                             () {
                               return Container(
+                                height: 40.h,
                                 decoration: BoxDecoration(
                                   color: secColor,
-                                  borderRadius: BorderRadius.circular(20.r),
+                                  borderRadius: BorderRadius.circular(100.r),
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                padding: EdgeInsets.symmetric(horizontal: 15.w),
                                 child: DropdownButton(
                                   value: controller.selectedCurrencyType.value,
                                   borderRadius: BorderRadius.circular(10.r),
@@ -244,6 +254,7 @@ class Marketplace extends GetWidget<MarketplaceController> {
                           )
                         ],
                       ),
+                      SizedBox(height: 20.h),
                     ],
                   ),
                 ),

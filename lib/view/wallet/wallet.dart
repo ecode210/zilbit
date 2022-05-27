@@ -1,5 +1,4 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -33,26 +32,29 @@ class Wallet extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 Container(
-                  height: defaultTargetPlatform == TargetPlatform.iOS ? 300.h : 285.h,
+                  height: 300.h,
                   width: 375.w,
                   color: priColor,
                   alignment: Alignment.centerRight,
+                ),
+                Positioned(
+                  right: 0,
                   child: SvgPicture.asset(
                     "assets/svg/wallet appbar pattern.svg",
-                    height: defaultTargetPlatform == TargetPlatform.iOS ? 350.h : 335.h,
-                    width: 375.w,
+                    height: 400.h,
+                    width: 500.w,
                     fit: BoxFit.cover,
                     color: whiteColor.withOpacity(0.1),
                   ),
                 ),
                 Container(
-                  height: defaultTargetPlatform == TargetPlatform.iOS ? 300.h : 285.h,
+                  height: 300.h,
                   width: 375.w,
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+                      SizedBox(height: 20.h),
                       SizedBox(
                         height: 24.h,
                         width: 335.w,
@@ -178,9 +180,9 @@ class Wallet extends StatelessWidget {
                   child: Column(
                     children: [
                       Container(
-                        height: 230.h,
                         padding: EdgeInsets.symmetric(horizontal: 20.w),
                         child: Column(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -217,9 +219,7 @@ class Wallet extends StatelessWidget {
                               ],
                             ),
                             SizedBox(height: 10.h),
-                            const Expanded(
-                              child: WalletGraph(),
-                            ),
+                            const WalletGraph(),
                           ],
                         ),
                       ),
@@ -229,7 +229,7 @@ class Wallet extends StatelessWidget {
                           SizedBox(width: 20.w),
                           Text(
                             "Recent Activity",
-                            style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                            style: Theme.of(context).textTheme.headline4,
                           ),
                           const Spacer(),
                           Text(

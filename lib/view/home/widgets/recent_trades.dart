@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:zilbit/constants.dart';
 
 class RecentTrades extends StatelessWidget {
   const RecentTrades({Key? key}) : super(key: key);
@@ -8,7 +7,7 @@ class RecentTrades extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45.h,
+      height: 50.h,
       margin: EdgeInsets.symmetric(vertical: 10.h),
       child: Row(
         children: [
@@ -26,7 +25,7 @@ class RecentTrades extends StatelessWidget {
             children: [
               Text(
                 "Aaron",
-                style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                style: Theme.of(context).textTheme.headline4,
               ),
               Text(
                 "1 Apr 2022",

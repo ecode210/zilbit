@@ -87,12 +87,9 @@ class TransactionBottomSheet {
           SizedBox(height: 10.h),
           Text(
             "Select Currency",
-            style: Theme.of(context).textTheme.headline3!.copyWith(
-                  color: blackColor,
-                  fontWeight: FontWeight.w700,
-                ),
+            style: Theme.of(context).textTheme.headline4,
           ),
-          SizedBox(height: 10.h),
+          SizedBox(height: 5.h),
           Expanded(
             child: ListView(
               physics: const BouncingScrollPhysics(),
@@ -112,7 +109,7 @@ class TransactionBottomSheet {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.amber,
-                        radius: 20.sp,
+                        radius: 17.sp,
                         child: FaIcon(
                           FontAwesomeIcons.bitcoinSign,
                           size: 20.sp,
@@ -145,11 +142,11 @@ class TransactionBottomSheet {
                         () {
                           return CircleAvatar(
                             backgroundColor: controller.sendCurrency.value == 0 ? priColor : formTextAreaDefault,
-                            radius: 12.sp,
+                            radius: 10.sp,
                             child: Icon(
                               Icons.check_rounded,
                               color: whiteColor,
-                              size: 15.sp,
+                              size: 13.sp,
                             ),
                           );
                         },
@@ -172,7 +169,7 @@ class TransactionBottomSheet {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.green,
-                        radius: 20.sp,
+                        radius: 17.sp,
                         child: FaIcon(
                           FontAwesomeIcons.ethereum,
                           size: 20.sp,
@@ -205,11 +202,11 @@ class TransactionBottomSheet {
                         () {
                           return CircleAvatar(
                             backgroundColor: controller.sendCurrency.value == 1 ? priColor : formTextAreaDefault,
-                            radius: 12.sp,
+                            radius: 10.sp,
                             child: Icon(
                               Icons.check_rounded,
                               color: whiteColor,
-                              size: 15.sp,
+                              size: 13.sp,
                             ),
                           );
                         },
@@ -232,7 +229,7 @@ class TransactionBottomSheet {
               Get.to(() => const AvailableAmount());
             },
             child: Container(
-              height: 40.h,
+              height: 50.h,
               width: 335.w,
               decoration: BoxDecoration(
                 color: priColor,
@@ -245,7 +242,6 @@ class TransactionBottomSheet {
               ),
             ),
           ),
-          SizedBox(height: 20.h),
         ],
       ),
     );
@@ -287,7 +283,7 @@ class TransactionBottomSheet {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.amber,
-                  radius: 20.sp,
+                  radius: 17.sp,
                   child: FaIcon(
                     FontAwesomeIcons.bitcoinSign,
                     size: 20.sp,
@@ -312,11 +308,11 @@ class TransactionBottomSheet {
                   () {
                     return CircleAvatar(
                       backgroundColor: controller.modeOfDeposit.value == 0 ? priColor : formTextAreaDefault,
-                      radius: 12.sp,
+                      radius: 10.sp,
                       child: Icon(
                         Icons.check_rounded,
                         color: whiteColor,
-                        size: 15.sp,
+                        size: 13.sp,
                       ),
                     );
                   },
@@ -346,7 +342,7 @@ class TransactionBottomSheet {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.green,
-                  radius: 20.sp,
+                  radius: 17.sp,
                   child: FaIcon(
                     FontAwesomeIcons.dollarSign,
                     size: 20.sp,
@@ -366,11 +362,11 @@ class TransactionBottomSheet {
                   () {
                     return CircleAvatar(
                       backgroundColor: controller.modeOfDeposit.value == 1 ? priColor : formTextAreaDefault,
-                      radius: 12.sp,
+                      radius: 10.sp,
                       child: Icon(
                         Icons.check_rounded,
                         color: whiteColor,
-                        size: 15.sp,
+                        size: 13.sp,
                       ),
                     );
                   },
@@ -417,7 +413,7 @@ class TransactionBottomSheet {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.amber,
-                  radius: 20.sp,
+                  radius: 17.sp,
                   child: FaIcon(
                     FontAwesomeIcons.bitcoinSign,
                     size: 20.sp,
@@ -451,11 +447,11 @@ class TransactionBottomSheet {
                   () {
                     return CircleAvatar(
                       backgroundColor: controller.depositCrypto.value == 0 ? priColor : formTextAreaDefault,
-                      radius: 12.sp,
+                      radius: 10.sp,
                       child: Icon(
                         Icons.check_rounded,
                         color: whiteColor,
-                        size: 15.sp,
+                        size: 13.sp,
                       ),
                     );
                   },
@@ -478,7 +474,7 @@ class TransactionBottomSheet {
               children: [
                 CircleAvatar(
                   backgroundColor: Colors.green,
-                  radius: 20.sp,
+                  radius: 17.sp,
                   child: FaIcon(
                     FontAwesomeIcons.ethereum,
                     size: 20.sp,
@@ -512,11 +508,11 @@ class TransactionBottomSheet {
                   () {
                     return CircleAvatar(
                       backgroundColor: controller.depositCrypto.value == 1 ? priColor : formTextAreaDefault,
-                      radius: 12.sp,
+                      radius: 10.sp,
                       child: Icon(
                         Icons.check_rounded,
                         color: whiteColor,
-                        size: 15.sp,
+                        size: 13.sp,
                       ),
                     );
                   },

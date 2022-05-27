@@ -15,7 +15,7 @@ class AuthTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (hintText != "••••") {
+    if (hintText != "******") {
       return SizedBox(
         height: 40.h,
         child: TextField(
@@ -63,22 +63,24 @@ class AuthTextField extends StatelessWidget {
                   width: 2.h,
                 ),
               ),
-              contentPadding: EdgeInsets.only(top: 5.h),
+              contentPadding: EdgeInsets.only(top: 0.h),
               hintText: hintText,
               hintStyle: Theme.of(context).textTheme.subtitle1,
-              prefixIcon: BouncingWidget(
+              suffixIcon: BouncingWidget(
                 onPressed: () {
                   Get.find<RegisterController>().passwordVisibility.value =
                       !Get.find<RegisterController>().passwordVisibility.value;
                 },
                 scaleFactor: 1,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 10.h),
+                child: Container(
+                  width: 10.w,
+                  alignment: Alignment.centerRight,
+                  padding: EdgeInsets.only(top: 0.h),
                   child: FaIcon(
                     Get.find<RegisterController>().passwordVisibility.value
                         ? FontAwesomeIcons.eye
                         : FontAwesomeIcons.eyeSlash,
-                    size: 20.sp,
+                    size: 17.sp,
                     color: formHeaders,
                   ),
                 ),

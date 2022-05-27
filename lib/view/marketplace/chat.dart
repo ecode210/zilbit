@@ -16,10 +16,10 @@ class Chat extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: Size(375.w, 105.h),
         child: Container(
-          height: 105.h,
+          height: 100.h,
           width: 375.w,
           color: priColor,
-          padding: EdgeInsets.fromLTRB(20.w, 60.h, 20.w, 20.w),
+          padding: EdgeInsets.fromLTRB(20.w, 40.h, 20.w, 20.w),
           child: Row(
             children: [
               GestureDetector(
@@ -32,10 +32,10 @@ class Chat extends StatelessWidget {
                   size: 25.sp,
                 ),
               ),
-              SizedBox(width: 20.w),
+              SizedBox(width: 10.w),
               CircleAvatar(
                 backgroundColor: Colors.amber.withOpacity(0.3),
-                radius: 13.sp,
+                radius: 20.sp,
               ),
               SizedBox(width: 5.w),
               CircleAvatar(
@@ -46,7 +46,6 @@ class Chat extends StatelessWidget {
               Text(
                 "Zilli Brain",
                 style: Theme.of(context).textTheme.button!.copyWith(
-                      fontSize: 12.sp,
                       color: whiteColor,
                     ),
               ),
@@ -119,9 +118,9 @@ class Chat extends StatelessWidget {
                       Stack(
                         children: [
                           Container(
-                            height: 140.h,
+                            // height: 140.h,
                             width: 335.w,
-                            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
+                            padding: EdgeInsets.fromLTRB(20.w, 15.h, 20.w, 5.h),
                             decoration: BoxDecoration(
                               color: priColor,
                               borderRadius: BorderRadius.circular(10.r),
@@ -179,7 +178,7 @@ class Chat extends StatelessWidget {
                           ),
                           Positioned(
                             right: 115.w,
-                            bottom: 22.h,
+                            bottom: 52.h,
                             child: CircleAvatar(
                               radius: 40.r,
                               backgroundColor: Colors.white.withOpacity(0.14),
@@ -196,7 +195,7 @@ class Chat extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: 40.h,
+                    height: 50.h,
                     width: 285.w,
                     padding: EdgeInsets.symmetric(horizontal: 10.w),
                     decoration: BoxDecoration(
@@ -214,7 +213,7 @@ class Chat extends StatelessWidget {
                         Expanded(
                           child: TextField(
                             cursorColor: priColor,
-                            cursorHeight: 15.h,
+                            cursorRadius: Radius.circular(20.r),
                             style: Theme.of(context).textTheme.subtitle1!.copyWith(color: formHeaders),
                             decoration: InputDecoration(
                               focusedBorder: InputBorder.none,
@@ -232,8 +231,8 @@ class Chat extends StatelessWidget {
                     onPressed: () {},
                     scaleFactor: 0.5,
                     child: Container(
-                      height: 40.h,
-                      width: 40.h,
+                      height: 50.h,
+                      width: 50.h,
                       decoration: BoxDecoration(
                         color: priColor,
                         borderRadius: BorderRadius.circular(10.r),
@@ -248,7 +247,7 @@ class Chat extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

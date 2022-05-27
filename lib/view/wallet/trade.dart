@@ -25,7 +25,7 @@ class Trade extends GetWidget<WalletController> {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             children: [
-              SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+              SizedBox(height: 20.h),
               SizedBox(
                 height: 24.h,
                 width: 375.w,
@@ -190,7 +190,6 @@ class Trade extends GetWidget<WalletController> {
                   Get.back();
                 },
                 child: Container(
-                  height: 75.h,
                   width: 335.w,
                   padding: EdgeInsets.all(15.w),
                   decoration: BoxDecoration(
@@ -260,7 +259,7 @@ class Trade extends GetWidget<WalletController> {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

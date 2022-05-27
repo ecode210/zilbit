@@ -28,7 +28,7 @@ class ReadFile extends GetWidget<VerificationController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+                SizedBox(height: 20.h),
                 Container(
                   height: 24.h,
                   width: 375.w,

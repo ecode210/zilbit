@@ -49,7 +49,7 @@ class VerificationCode extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 50.h),
+              SizedBox(height: 40.h),
               Text(
                 "Verification",
                 style: Theme.of(context).textTheme.headline2,
@@ -62,14 +62,14 @@ verification code""",
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
-              SizedBox(height: 40.h),
+              SizedBox(height: 30.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: Pinput(
                   keyboardType: TextInputType.phone,
                   controller: pinController,
                   focusNode: focusNode,
-                  onTap: (){
+                  onTap: () {
                     focusNode.unfocus();
                   },
                   cursor: Container(
@@ -99,9 +99,9 @@ verification code""",
                 "Didn't receive verification code?",
                 style: Theme.of(context).textTheme.bodyText1,
               ),
-              SizedBox(height: 30.h),
+              SizedBox(height: 20.h),
               GestureDetector(
-                onTap: (){
+                onTap: () {
                   //TODO: Change functionality
                   Get.to(() => TransactionPin());
                 },

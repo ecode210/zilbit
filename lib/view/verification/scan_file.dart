@@ -35,7 +35,7 @@ class ScanFile extends GetWidget<VerificationController> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 10.h : 30.h),
+                      SizedBox(height: 10.h),
                       SizedBox(
                         height: 24.h,
                         width: 375.w,

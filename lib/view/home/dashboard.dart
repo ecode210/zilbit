@@ -20,7 +20,7 @@ class Dashboard extends GetWidget<HomeController> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
-        backgroundColor: priColor,
+        backgroundColor: backgroundColor,
         body: SizedBox(
           height: 812.h,
           width: 375.w,
@@ -40,10 +40,9 @@ class Dashboard extends GetWidget<HomeController> {
           ),
         ),
         bottomNavigationBar: Container(
-          height: defaultTargetPlatform == TargetPlatform.iOS ? 90.h : 70.h,
+          height: 80.h,
           width: 375.w,
           color: whiteColor,
-          padding: defaultTargetPlatform == TargetPlatform.iOS ? EdgeInsets.only(bottom: 20.h) : null,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

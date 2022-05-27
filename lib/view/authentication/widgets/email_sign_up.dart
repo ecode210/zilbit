@@ -30,7 +30,7 @@ class EmailSignUp extends StatelessWidget {
           ),
           const AuthTextField(
             textInputType: TextInputType.text,
-            hintText: "••••",
+            hintText: "******",
           ),
           const Spacer(),
           Text(

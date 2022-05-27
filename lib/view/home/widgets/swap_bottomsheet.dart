@@ -183,7 +183,7 @@ class _SwapBottomSheetState extends State<SwapBottomSheet> {
                               ),
                             ),
                             prefixIcon: Padding(
-                              padding: EdgeInsets.only(top: defaultTargetPlatform == TargetPlatform.iOS ? 10.h : 7.h),
+                              padding: EdgeInsets.only(top: 10.h),
                               child: FaIcon(
                                 FontAwesomeIcons.magnifyingGlass,
                                 color: formTextAreaDefault,
@@ -199,7 +199,7 @@ class _SwapBottomSheetState extends State<SwapBottomSheet> {
                     SizedBox(height: 10.h),
                     Expanded(
                       child: Container(
-                        padding: EdgeInsets.only(bottom: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 0),
+                        padding: EdgeInsets.only(bottom: 20.h),
                         width: double.infinity,
                         child: ListView.separated(
                           itemCount: 10,

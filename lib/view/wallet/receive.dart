@@ -22,7 +22,7 @@ class Receive extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             children: [
-              SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+              SizedBox(height: 20.h),
               SizedBox(
                 height: 24.h,
                 width: 375.w,
@@ -69,7 +69,7 @@ class Receive extends StatelessWidget {
                       size: 200.sp,
                       gapless: false,
                     ),
-                    SizedBox(height: 50.h),
+                    const Spacer(),
                     Divider(
                       color: formTextAreaDefault,
                       thickness: 1.h,
@@ -111,11 +111,11 @@ class Receive extends StatelessWidget {
                         ),
                         SizedBox(width: 15.w),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 30.h),
+              SizedBox(height: 20.h),
               Container(
                 width: 335.w,
                 padding: EdgeInsets.all(10.w),
@@ -145,9 +145,8 @@ class Receive extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 30.h),
+              SizedBox(height: 20.h),
               Container(
-                height: 75.h,
                 width: 335.w,
                 padding: EdgeInsets.all(15.w),
                 decoration: BoxDecoration(
@@ -216,7 +215,7 @@ class Receive extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

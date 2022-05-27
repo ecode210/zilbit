@@ -22,7 +22,7 @@ class UserProfile extends GetWidget<ProfileController> {
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             children: [
-              SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 30.h),
+              SizedBox(height: 20.h),
               SizedBox(
                 height: 24.h,
                 width: 375.w,
@@ -272,7 +272,7 @@ class UserProfile extends GetWidget<ProfileController> {
                   ),
                 ),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: 20.h),
             ],
           ),
         ),

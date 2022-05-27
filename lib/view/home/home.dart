@@ -27,13 +27,13 @@ class Home extends StatelessWidget {
           return false;
         },
         child: ListView(
-          physics: defaultTargetPlatform == TargetPlatform.iOS ? const ClampingScrollPhysics() : null,
+          physics: const ClampingScrollPhysics(),
           children: [
             Stack(
               clipBehavior: Clip.none,
               children: [
                 Container(
-                  height: defaultTargetPlatform == TargetPlatform.iOS ? 225.h : 240.h,
+                  height: 225.h,
                   width: 375.w,
                   color: priColor,
                   alignment: Alignment.centerRight,
@@ -42,13 +42,13 @@ class Home extends StatelessWidget {
                   bottom: 0,
                   right: 0,
                   child: Container(
-                    height: defaultTargetPlatform == TargetPlatform.iOS ? 275.h : 290.h,
+                    height: 275.h,
                     width: 375.w,
                     color: priColor,
                     alignment: Alignment.centerRight,
                     child: SvgPicture.asset(
                       "assets/svg/appbar pattern.svg",
-                      height: defaultTargetPlatform == TargetPlatform.iOS ? 275.h : 290.h,
+                      height: 275.h,
                       width: 375.w,
                       fit: BoxFit.fitHeight,
                       color: whiteColor.withOpacity(0.1),
@@ -56,7 +56,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  height: defaultTargetPlatform == TargetPlatform.iOS ? 225.h : 240.h,
+                  height: 225.h,
                   width: 375.w,
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: Column(
@@ -125,7 +125,7 @@ class Home extends StatelessWidget {
                 children: [
                   Text(
                     "Market Overview",
-                    style: Theme.of(context).textTheme.headline3!.copyWith(color: blackColor),
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                   Icon(
                     Icons.arrow_forward_ios_rounded,
@@ -137,7 +137,6 @@ class Home extends StatelessWidget {
             ),
             SizedBox(height: 15.h),
             Container(
-              height: 160.h,
               padding: EdgeInsets.all(20.w),
               margin: EdgeInsets.symmetric(horizontal: 20.w),
               decoration: BoxDecoration(
@@ -150,7 +149,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.amber,
-                        radius: 20.w,
+                        radius: 17.w,
                         child: FaIcon(
                           FontAwesomeIcons.bitcoinSign,
                           color: whiteColor,
@@ -165,12 +164,11 @@ class Home extends StatelessWidget {
                             "Bitcoin",
                             style: Theme.of(context).textTheme.bodyText1!.copyWith(
                                   color: blackColor,
-                                  fontSize: 16.sp,
                                 ),
                           ),
                           Text(
                             "BTC",
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.caption!.copyWith(color: formHeaders),
                           ),
                         ],
                       ),
@@ -182,7 +180,10 @@ class Home extends StatelessWidget {
                         children: [
                           Text(
                             "\$39,397.73",
-                            style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                            style: Theme.of(context).textTheme.button!.copyWith(
+                                  color: blackColor,
+                                  fontSize: 14.sp,
+                                ),
                           ),
                           Text(
                             "+3.00%",
@@ -205,7 +206,7 @@ class Home extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         backgroundColor: priColor,
-                        radius: 20.w,
+                        radius: 17.w,
                         child: FaIcon(
                           FontAwesomeIcons.ethereum,
                           color: whiteColor,
@@ -220,12 +221,11 @@ class Home extends StatelessWidget {
                             "Ethereum",
                             style: Theme.of(context).textTheme.bodyText1!.copyWith(
                                   color: blackColor,
-                                  fontSize: 16.sp,
                                 ),
                           ),
                           Text(
                             "ETH",
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.caption!.copyWith(color: formHeaders),
                           ),
                         ],
                       ),
@@ -237,12 +237,15 @@ class Home extends StatelessWidget {
                         children: [
                           Text(
                             "\$39,397.73",
-                            style: Theme.of(context).textTheme.button!.copyWith(color: blackColor),
+                            style: Theme.of(context).textTheme.button!.copyWith(
+                                  color: blackColor,
+                                  fontSize: 14.sp,
+                                ),
                           ),
                           Text(
                             "-11.00%",
                             style: Theme.of(context).textTheme.button!.copyWith(
-                                  color: Colors.red,
+                                  color: Colors.green,
                                   fontSize: 12.sp,
                                 ),
                           ),
@@ -394,9 +397,8 @@ know you could""",
             ),
             SizedBox(height: 20.h),
             Container(
-              height: defaultTargetPlatform == TargetPlatform.iOS ? 190.h : 210.h,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
-              padding: EdgeInsets.symmetric(vertical: 20.h),
+              padding: EdgeInsets.all(20.w),
               decoration: BoxDecoration(
                 color: whiteColor,
                 borderRadius: BorderRadius.circular(16.r),
@@ -410,20 +412,17 @@ know you could""",
                 children: [
                   Text(
                     "Do more with Zilbit",
-                    style: Theme.of(context).textTheme.headline3!.copyWith(
-                          color: blackColor,
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
                           fontWeight: FontWeight.w700,
                         ),
                   ),
                   SizedBox(height: 10.h),
                   Text(
-                    """
-Be Limitless! Click the button below to
-complete your profile verification.""",
+                    "Be Limitless! Click the button below to\ncomplete your profile verification",
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: Theme.of(context).textTheme.caption!.copyWith(color: formTextAreaDefault),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 10.h),
                   GestureDetector(
                     onTap: () {
                       Get.to(() => const Verification());
@@ -438,7 +437,10 @@ complete your profile verification.""",
                       alignment: Alignment.center,
                       child: Text(
                         "Complete Verification",
-                        style: Theme.of(context).textTheme.button!.copyWith(color: whiteColor),
+                        style: Theme.of(context).textTheme.button!.copyWith(
+                              color: whiteColor,
+                              fontSize: 14.sp,
+                            ),
                       ),
                     ),
                   ),
@@ -454,7 +456,7 @@ complete your profile verification.""",
                 children: [
                   Text(
                     "Recent Trades",
-                    style: Theme.of(context).textTheme.headline3!.copyWith(color: blackColor),
+                    style: Theme.of(context).textTheme.headline4,
                   ),
                   Icon(
                     Icons.arrow_forward_ios_rounded,
@@ -466,7 +468,6 @@ complete your profile verification.""",
             ),
             SizedBox(height: 15.h),
             Container(
-              height: 330.h,
               width: 335.w,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
@@ -475,6 +476,7 @@ complete your profile verification.""",
                 borderRadius: BorderRadius.circular(15.r),
               ),
               child: ListView.separated(
+                shrinkWrap: true,
                 scrollDirection: Axis.vertical,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: 4,

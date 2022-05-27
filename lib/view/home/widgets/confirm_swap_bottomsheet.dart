@@ -28,7 +28,7 @@ class ConfirmSwapBottomSheet extends GetWidget<HomeController> {
           color: formTextAreaDefault,
           thickness: 1.h,
         ),
-        SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 15.h : 10.h),
+        SizedBox(height: 15.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -55,12 +55,12 @@ class ConfirmSwapBottomSheet extends GetWidget<HomeController> {
             )
           ],
         ),
-        SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 15.h : 10.h),
+        SizedBox(height: 15.h),
         Divider(
           color: formTextAreaDefault,
           thickness: 1.h,
         ),
-        SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 15.h : 10.h),
+        SizedBox(height: 15.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -87,12 +87,12 @@ class ConfirmSwapBottomSheet extends GetWidget<HomeController> {
             )
           ],
         ),
-        SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 15.h : 10.h),
+        SizedBox(height: 15.h),
         Divider(
           color: formTextAreaDefault,
           thickness: 1.h,
         ),
-        SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 15.h : 10.h),
+        SizedBox(height: 15.h),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -155,7 +155,7 @@ class ConfirmSwapBottomSheet extends GetWidget<HomeController> {
             ),
           ),
         ),
-        SizedBox(height: defaultTargetPlatform == TargetPlatform.iOS ? 20.h : 0),
+        SizedBox(height: 20.h),
       ],
     );
   }

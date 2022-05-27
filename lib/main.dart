@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
                 textStyle: TextStyle(
                   color: blackColor,
                   fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               overline: GoogleFonts.poppins(

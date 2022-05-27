@@ -106,6 +106,7 @@ class ReferralID extends GetWidget<ProfileController> {
                       if (controller.hasInvites.value)
                         Expanded(
                           child: ListView.separated(
+                            physics: const BouncingScrollPhysics(),
                             padding: EdgeInsets.fromLTRB(10.w, 10.h, 10.w, 0),
                             itemCount: 10,
                             separatorBuilder: (context, index) {
@@ -183,8 +184,7 @@ class ReferralID extends GetWidget<ProfileController> {
                             ),
                           ),
                         ),
-                      if (!controller.hasInvites.value) SizedBox(height: 60.h),
-                      SizedBox(height: 20.h),
+                      if (!controller.hasInvites.value) const Spacer(),
                       GestureDetector(
                         onTap: () {},
                         child: Container(
@@ -201,7 +201,7 @@ class ReferralID extends GetWidget<ProfileController> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10.h),
+                      SizedBox(height: 20.h),
                     ],
                   ),
                 )

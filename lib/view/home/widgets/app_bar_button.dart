@@ -27,11 +27,7 @@ class AppBarButton extends GetWidget<HomeController> {
                 TransactionBottomSheet.modeOfDeposit(context: context, controller: controller);
                 break;
               case "Swap":
-                pageController!.animateToPage(
-                  2,
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.fastLinearToSlowEaseIn,
-                );
+                pageController!.jumpToPage(2);
                 break;
               case "Receive":
                 Get.to(() => Receive());
